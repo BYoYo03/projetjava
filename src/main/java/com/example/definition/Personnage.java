@@ -1,7 +1,5 @@
 package com.example.definition;
 
-import java.util.Random;
-
 public class Personnage {
     int vie;
     int attaque;

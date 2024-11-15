@@ -1,9 +1,4 @@
 package com.example;
-import com.example.definition.Personnage;
-import com.example.definition.Hero;
-import com.example.definition.Gangster;
-import com.example.definition.Chevalier;
-import com.example.definition.Brigand;
 import com.example.definition.Jeu;
 
 
