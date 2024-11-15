@@ -1,31 +1,47 @@
 package com.example.definition;
 
 
-public class Hero extends Personnage {
-    int chance = 1;
-    private int Random(int i, int j) {
-        return (int) (Math.random() * (j - i + 1) + i);
-    }
-    int nbrattaque = Random(1, 5);
-    String arme = "Epée";
+public class Hero extends Heros implements Capacitespeciale{
+    public String capacite= "one shot";
+    public int nbrcapacite=1;
+
 
     public Hero() {
-        super(100, 10, 5, 1, 1, "Epée");
-        this.chance = 1;                     // Valeur par défaut pour chance
-        this.arme = "Epée";                  // Valeur par défaut pour arme
-        this.nbrattaque = Random(1, 5);      // Calcul d'une valeur aléatoire pour nbrattaque
+        super();
+        this.setArme("Epee");
     }
 
     public String toString() {
-        return "Hero [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance
-                + ", nbrattaque=" + nbrattaque + ", arme=" + arme + "]";
+        return "Hero [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance  + ", arme=" + arme + "," + " capacite=" + capacite + " nbrcapacite=" + nbrcapacite + "]";
     }
 
-    
+    public String getCapacite() {
+        return capacite;
+    }
 
+    public void setCapacite(String capacite) {
+        this.capacite = capacite;
+    }
 
+    public int getNbrcapacite() {
+        return nbrcapacite;
+    }
 
+    public void setNbrcapacite(int nbrcapacite) {
+        this.nbrcapacite = nbrcapacite;
+    }
 
+    @Override
+    public void utiliserCapacite(Personnage cible) {
+        // Logique de la capacité spéciale "One Shot"
+        if (nbrcapacite > 0) {
+            nbrcapacite--;  // Réduit le nombre d'utilisations de la capacité
+            cible.vie = 0;  // Tué instantanément
+            System.out.println("Vous avez utilisé 'One Shot' et tué l'ennemi !");
+        } else {
+            System.out.println("Vous n'avez plus de capacité spéciale !");
+        }
+    }
 
     
 }
