@@ -1,7 +1,7 @@
 package com.example.definition;
 
 
-public class Hero extends Gentils implements Capacitespeciale{
+public class Hero extends Heros implements Capacitespeciale{
     public String capacite= "one shot";
     public int nbrcapacite=1;
 

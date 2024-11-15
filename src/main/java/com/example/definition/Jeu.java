@@ -31,9 +31,9 @@ public class Jeu {
             System.out.println(hero);
             debuterpartie(new Hero());
         } else if (choix.equals("A")) {
-            Assassin assassin = new Assassin();
-            System.out.println(assassin);
-            debuterpartie(new Assassin());
+            Chevalier chevalier = new Chevalier();
+            System.out.println(chevalier);
+            debuterpartie(new Chevalier());
         } else {
             System.out.println("Choix invalide");
             choixperso();
@@ -68,7 +68,7 @@ public class Jeu {
             } else if (choix1.equals("C")) {
                 System.out.println("Choix invalide");
             } else {
-                System.out.println("Choix invalide");
+                break;
             }
         }
         

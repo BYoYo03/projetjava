@@ -1,8 +1,8 @@
 package com.example.definition;
 
-public class Assassin extends Gentils {
+public class Chevalier extends Heros {
     
-    public Assassin() {
+    public Chevalier() {
         super();
         this.setAttaque(attaque + 10);
         this.setArme("Poignard");
