@@ -24,13 +24,13 @@ public class Jeu {
         System.out.println("Choisissez votre personnage");
         Scanner sc = new Scanner(System.in);
         System.out.println("H. Hero");
-        System.out.println("A. Assassin");
+        System.out.println("C. Chevalier");
         String choix = sc.next();
         if (choix.equals("H")) {
             Hero hero = new Hero();
             System.out.println(hero);
             debuterpartie(new Hero());
-        } else if (choix.equals("A")) {
+        } else if (choix.equals("C")) {
             Chevalier chevalier = new Chevalier();
             System.out.println(chevalier);
             debuterpartie(new Chevalier());
@@ -56,7 +56,7 @@ public class Jeu {
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
             System.out.println("A. Attaquer");
-            System.out.println("B. Attaque spéciale");
+            System.out.println("B. Capacité spéciale");
             System.out.println("C. Fuir");
             System.out.println("");
             String choix1 = sc1.next();
@@ -64,11 +64,15 @@ public class Jeu {
             if (choix1.equals("A")) {
                 a.attaquepremier(b);
             } else if (choix1.equals("B")) {
-                System.out.println("Attaque spéciale");
+                if (a instanceof Capacitespeciale) {
+                    ((Capacitespeciale) a).utiliserCapacite(b);  // Utilisation de la capacité spéciale
+                } else {
+                    System.out.println("Ce personnage n'a pas de capacité spéciale.");
+                }
             } else if (choix1.equals("C")) {
                 System.out.println("Choix invalide");
             } else {
-                break;
+                System.out.println("Choix invalide");
             }
         }
         
