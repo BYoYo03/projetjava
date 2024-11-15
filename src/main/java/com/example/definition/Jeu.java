@@ -147,19 +147,25 @@ public class Jeu {
         while (true) {
             // verifier s'il reste des ennemis sinon fin de partie
             boolean ennemiRestant = false;
+            // parcourir la carte
             for (int i = 0; i < cartee.map.length; i++) {
+                // parcourir la ligne   
                 for (int j = 0; j < cartee.map[i].length; j++) {
+                    // si un ennemi est trouvé, sortir de la boucle et continuer le jeu
                     if (cartee.map[i][j] == 'E') {
                         ennemiRestant = true;
                         break;
                     }
                 }
             }
+
+            // si aucun ennemi n'est trouvé, fin de partie
             if (ennemiRestant == false) {
                 System.out.println("Il n'y a plus d'ennemis");
                 System.out.println("Vous avez gagné");
                 findepartie();
             }
+            // Choix du joueur pour se déplacer
                     System.out.println("");
                     System.out.println("Votre "+ a.getClass().getSimpleName() + " a " + a.vie + " points de vie");
                     System.out.println("Tour du joueur");
@@ -169,10 +175,11 @@ public class Jeu {
                     System.out.println("d. Droite ");
                     System.out.println("2. Quitter");
                     String choix = sc.next();
-    
+            
+            // Déplacement du joueur
             int newX = cartee.x;
             int newY = cartee.y;
-    
+            
             if (choix.equals("z")) {
                 if (cartee.x > 0) {
                     newX -= 1;
