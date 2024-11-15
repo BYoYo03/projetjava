@@ -12,6 +12,7 @@ public class Jeu {
     public void commencer() {
         System.out.println("Le jeu commence");
     }
+
     char[][] map = {
         {'H', '.', '.', '.', 'E'},
         {'.', '.', '.', 'E', '.'},
@@ -25,6 +26,7 @@ public class Jeu {
         Scanner sc = new Scanner(System.in);
         System.out.println("H. Hero");
         System.out.println("C. Chevalier");
+        System.out.println("M. Magicien");
         String choix = sc.next();
         if (choix.equals("H")) {
             Hero hero = new Hero();
@@ -34,11 +36,14 @@ public class Jeu {
             Chevalier chevalier = new Chevalier();
             System.out.println(chevalier);
             debuterpartie(new Chevalier());
+        } else if (choix.equals("M")) {
+            Magicien magicien = new Magicien();
+            System.out.println(magicien);
+            debuterpartie(new Magicien());
         } else {
             System.out.println("Choix invalide");
             choixperso();
         }
-        
 
     }
 
@@ -162,13 +167,17 @@ public class Jeu {
                 }
                 System.out.println("Vous avez rencontré " + random +" ennemi(s)");
                 for (int i = 0; i < random; i++) {
-                    int random2 = (int) (Math.random() * 2);
+                    int random2 = (int) (Math.random() * 3);
                     if (random2 == 0) {
                         Gangster b = new Gangster();
                         System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     } else if (random2 == 1) {
                         Brigand b = new Brigand();
+                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        combattre(a, b, cartee, newX, newY);
+                    } else if (random2 == 2) {
+                        Catcheur b = new Catcheur();
                         System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     } else {

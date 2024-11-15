@@ -35,8 +35,9 @@ public class Chevalier extends Heros implements Capacitespeciale{
         // Logique de la capacité spéciale "Matrix", il equive l'attaque de la cible et attaque en retour ou inverse il attaque et esquive
         if (nbrcapacite > 0) {
             nbrcapacite--;  // Réduit le nombre d'utilisations de la capacité
-            cible.vie = cible.vie - (attaque - cible.defense);  // Attaque l'ennemi
-            System.out.println("Vous avez utilisé 'Matrix', vous avez attaqué l'ennemi en esquivant son attaque !");
+            cible.vie = cible.vie - ((attaque - cible.defense)*2);  // Attaque l'ennemi
+            System.out.println("Vous avez utilisé 'Matrix', vous avez attaqué l'ennemi en esquivant son attaque 2x!");
+            System.out.println("Dégâts infligés : " + ((attaque - cible.defense)*2));
             System.out.println(cible.getClass().getSimpleName() + " a maintenant " + cible.vie + " points de vie.");
         } else {
             System.out.println("Vous n'avez plus de capacité spéciale !");
