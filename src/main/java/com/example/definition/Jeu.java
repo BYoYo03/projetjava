@@ -7,9 +7,47 @@ import javax.sound.sampled.SourceDataLine;
 import javax.swing.BoundedRangeModel;
 import javax.swing.plaf.basic.BasicSeparatorUI;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+import java.util.logging.Level;
+import java.util.logging.Handler;
+
+
+
 
 public class Jeu {
+    // Déclarez le logger comme un attribut de classe
+    private static final Logger logger = Logger.getLogger(Jeu.class.getName());
+
+    public Jeu() {
+        try {
+            // Supprimer tous les handlers existants (comme le ConsoleHandler par défaut)
+            Logger rootLogger = Logger.getLogger("");
+            Handler[] handlers = rootLogger.getHandlers();
+            for (Handler handler : handlers) {
+                rootLogger.removeHandler(handler);
+            }
+
+            // Créer un FileHandler pour écrire dans un fichier de log nommé "game.log"
+            FileHandler fileHandler = new FileHandler("game.log", true);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fileHandler.setFormatter(formatter);
+
+            // Ajouter uniquement le FileHandler au logger
+            logger.addHandler(fileHandler);
+            
+            // Définir le niveau de logging
+            logger.setLevel(Level.INFO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
     public void commencer() {
+        logger.info("Le jeu commence");
         System.out.println("Le jeu commence");
     }
 
@@ -29,18 +67,22 @@ public class Jeu {
         System.out.println("M. Magicien");
         String choix = sc.next();
         if (choix.equals("H")) {
+            logger.info("Le joueur a choisi le Hero");
             Hero hero = new Hero();
             System.out.println(hero);
             debuterpartie(new Hero());
         } else if (choix.equals("C")) {
+            logger.info("Le joueur a choisi le Chevalier");
             Chevalier chevalier = new Chevalier();
             System.out.println(chevalier);
             debuterpartie(new Chevalier());
         } else if (choix.equals("M")) {
+            logger.info("Le joueur a choisi le Magicien");
             Magicien magicien = new Magicien();
             System.out.println(magicien);
             debuterpartie(new Magicien());
         } else {
+            logger.info("Choix invalide");
             System.out.println("Choix invalide");
             choixperso();
         }
@@ -53,6 +95,7 @@ public class Jeu {
     }
 
     public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
+        
         System.out.println("");
 
         System.out.println("Specs de l'ennemi : " + b);
