@@ -4,7 +4,6 @@ public class Brigand extends Ennemies {
     
     public Brigand() {
         super();
-        this.setChance(1); // Utilise le setter pour définir chance à 1
         this.setArme("Poings");
     }
 

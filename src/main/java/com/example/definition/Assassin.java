@@ -4,6 +4,7 @@ public class Assassin extends Gentils {
     
     public Assassin() {
         super();
+        this.setAttaque(attaque + 10);
         this.setArme("Poignard");
     }
 

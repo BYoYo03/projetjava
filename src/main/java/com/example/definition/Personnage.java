@@ -95,15 +95,15 @@ public class Personnage {
         else {
         
         int nbrattaque = Random(1, 5);
-        System.out.println(a);
-        System.out.println(a.chance + " " + this.chance);
+        System.out.println("");
+
         if (this.chance > a.chance) {
+            System.out.println("Vous êtes le plus rapide");
             if (this.getClass().getSimpleName().equals("Hero")) {
 
                 int compteur = 0;
                 System.out.println("Le Hero attaque " + nbrattaque + " fois");
-                System.out.println("ici");
-                System.out.println(this.chance + " " + a.chance);
+
                 while (compteur < nbrattaque) {
                     
                     
@@ -148,6 +148,8 @@ public class Personnage {
     }
 
     else {
+        System.out.println("Vous êtes le plus lent donc vous attaquez en dernier");
+        System.out.println("");
         if (this.getClass().getSimpleName().equals("Hero")) {
             System.out.println("C'est au tour de " + a.getClass().getSimpleName());
             a.attaque(this);

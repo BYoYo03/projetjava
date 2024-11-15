@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import javax.sound.sampled.SourceDataLine;
 import javax.swing.BoundedRangeModel;
+import javax.swing.plaf.basic.BasicSeparatorUI;
 
 
 public class Jeu {
@@ -22,25 +23,68 @@ public class Jeu {
     public void choixperso() {
         System.out.println("Choisissez votre personnage");
         Scanner sc = new Scanner(System.in);
-        System.out.println("1. Hero");
-        System.out.println("2. Assassin");
-        int choix = sc.nextInt();
-        if (choix == 1) {
+        System.out.println("H. Hero");
+        System.out.println("A. Assassin");
+        String choix = sc.next();
+        if (choix.equals("H")) {
             Hero hero = new Hero();
             System.out.println(hero);
             debuterpartie(new Hero());
-        } else if (choix == 2) {
+        } else if (choix.equals("A")) {
             Assassin assassin = new Assassin();
             System.out.println(assassin);
+            debuterpartie(new Assassin());
         } else {
             System.out.println("Choix invalide");
+            choixperso();
         }
         
 
-
-
     }
 
+    public void findepartie() {
+        System.out.println("La partie est terminée");
+        System.exit(0);
+    }
+
+    public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
+        System.out.println("");
+
+        System.out.println("Specs de l'ennemi : " + b);
+                            
+        while (a.vie > 0 && b.vie > 0) {
+            Scanner sc1 = new Scanner(System.in);
+            System.out.println("");
+            System.out.println("A. Attaquer");
+            System.out.println("B. Attaque spéciale");
+            System.out.println("C. Fuir");
+            System.out.println("");
+            String choix1 = sc1.next();
+            
+            if (choix1.equals("A")) {
+                a.attaquepremier(b);
+            } else if (choix1.equals("B")) {
+                System.out.println("Choix invalide");
+            } else if (choix1.equals("C")) {
+                System.out.println("Choix invalide");
+            } else {
+                System.out.println("Choix invalide");
+            }
+        }
+        
+        if (b.vie <= 0) {
+            System.out.println("Vous avez gagné");
+            System.out.println("");
+            cartee.map[cartee.x][cartee.y] = 'H';
+        } else if (a.vie <= 0) {
+            System.out.println("Vous avez perdu");
+            findepartie();
+        } else {
+            cartee.map[cartee.x][cartee.y] = 'X';
+        }
+    }
+    
+    
     public void debuterpartie(Personnage a) {
         System.out.println("La partie commence");
         
@@ -49,6 +93,8 @@ public class Jeu {
         cartee.afficherCarte();
         Scanner sc = new Scanner(System.in);
         while (true) {
+                    System.out.println("");
+                    System.out.println("Votre "+ a.getClass().getSimpleName() + " a " + a.vie + " points de vie");
                     System.out.println("Tour du joueur");
                     System.out.println("z. Monter ");
                     System.out.println("q. Gauche ");
@@ -101,51 +147,34 @@ public class Jeu {
                 combat = true;
                 
             }
-    
+            
             cartee.deplacerHero(newX, newY);
+            System.out.println("");
     
             if (combat) {
-                // Un ennemie est rencontré au hasard soit brigands soit monstres
-                /* Personnage b = null;
-                int random = (int) (Math.random() * 2);
+                int random = (int) (Math.random() * 3);
                 if (random == 0) {
-                    b = new Brigand();
-                } else {
-                    b = new Gangster();
-                }*/
-
-                Gangster b = new Gangster();
-                System.out.println(b);
-                System.out.println("Vous avez rencontré un " + b.getClass().getSimpleName());
-                System.out.println("");
-                
-                
-                while (a.vie > 0 && b.vie > 0) {
-                    Scanner sc1 = new Scanner(System.in);
-                    System.out.println("A. Attaquer");
-                    System.out.println("B. Attaque spéciale");
-                    System.out.println("C. Fuir");
-                    String choix1 = sc1.next();
-                    if (choix1.equals("A")) {
-                        a.attaquepremier(b);
-                    } else if (choix1.equals("B")) {
-                        System.out.println("Vous avez utilisé votre attaque spéciale");
-                    } else if (choix1.equals("C")) {
-                        System.out.println("Vous avez fui");
-                        break;
+                    random = 1;
+                }
+                System.out.println("Vous avez rencontré " + random +" ennemi(s)");
+                for (int i = 0; i < random; i++) {
+                    int random2 = (int) (Math.random() * 2);
+                    if (random2 == 0) {
+                        Gangster b = new Gangster();
+                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        combattre(a, b, cartee, newX, newY);
+                    } else if (random2 == 1) {
+                        Brigand b = new Brigand();
+                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        combattre(a, b, cartee, newX, newY);
                     } else {
-                        System.out.println("Choix invalide");
+                        Monstre b = new Monstre();
+                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        combattre(a, b, cartee, newX, newY);
                     }
+                    
                 }
-                if (b.vie <= 0) {
-                    System.out.println("Vous avez gagné");
-                    cartee.map[cartee.x][cartee.y] = 'H';
-                } else if (a.vie <= 0) {
-                    System.out.println("Vous avez perdu");
-                    break;
-                } else {
-                    cartee.map[cartee.x][cartee.y] = 'X';
-                }
+               
             }
     
             cartee.afficherCarte();
