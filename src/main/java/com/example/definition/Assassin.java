@@ -1,13 +1,10 @@
 package com.example.definition;
 
-public class Assassin extends Personnage{
-    int chance = 1;
-    String arme = "Poignard";
-
+public class Assassin extends Gentils {
+    
     public Assassin() {
-        super(75, 8, 4, 1, "Poignard");
-        this.chance = 1;
-        this.arme = "Poignard";
+        super();
+        this.setArme("Poignard");
     }
 
     public String toString() {

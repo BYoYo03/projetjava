@@ -1,13 +1,12 @@
 package com.example.definition;
 
-public class Gangster extends Personnage{
-    int chance = 2;
-    String arme = "Pistolet";
+
+public class Gangster extends Ennemies {
 
     public Gangster() {
-        super(50, 7, 3, 2, "Pistolet");
-        this.chance = 2;
-        this.arme = "Pistolet";
+        super();
+        this.setChance(2); // Utilise le setter pour définir chance à 2
+        this.setArme("Pistolet");
     }
 
 

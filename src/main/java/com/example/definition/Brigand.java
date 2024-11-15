@@ -1,13 +1,11 @@
 package com.example.definition;
 
-public class Brigand extends Personnage {
-    int chance = 0;
-    String arme = "Dague";
-
+public class Brigand extends Ennemies {
+    
     public Brigand() {
-        super(100, 10, 5, 0, "Dague");
-        this.chance = 0;                     // Valeur par défaut pour chance
-        this.arme = "Dague";                  // Valeur par défaut pour armes 
+        super();
+        this.setChance(1); // Utilise le setter pour définir chance à 1
+        this.setArme("Poings");
     }
 
     public String toString() {

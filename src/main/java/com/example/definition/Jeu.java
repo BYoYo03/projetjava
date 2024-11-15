@@ -23,7 +23,7 @@ public class Jeu {
         System.out.println("Choisissez votre personnage");
         Scanner sc = new Scanner(System.in);
         System.out.println("1. Hero");
-        System.out.println("3. Assassin");
+        System.out.println("2. Assassin");
         int choix = sc.nextInt();
         if (choix == 1) {
             Hero hero = new Hero();
@@ -43,7 +43,7 @@ public class Jeu {
 
     public void debuterpartie(Personnage a) {
         System.out.println("La partie commence");
-        Brigand b = new Brigand();
+        
 
         Carte cartee = new Carte(map, 0, 0);
         cartee.afficherCarte();
@@ -99,15 +99,27 @@ public class Jeu {
             boolean combat = false;
             if (cartee.map[newX][newY] == 'E') {
                 combat = true;
+                
             }
     
             cartee.deplacerHero(newX, newY);
     
             if (combat) {
+                // Un ennemie est rencontré au hasard soit brigands soit monstres
+                /* Personnage b = null;
+                int random = (int) (Math.random() * 2);
+                if (random == 0) {
+                    b = new Brigand();
+                } else {
+                    b = new Gangster();
+                }*/
+
+                Gangster b = new Gangster();
+                System.out.println(b);
                 System.out.println("Vous avez rencontré un " + b.getClass().getSimpleName());
-                System.out.println("Vous attaquez car vous êtes plus rapide");
+                System.out.println("");
                 
-                a.attaquepremier(b);
+                
                 while (a.vie > 0 && b.vie > 0) {
                     Scanner sc1 = new Scanner(System.in);
                     System.out.println("A. Attaquer");

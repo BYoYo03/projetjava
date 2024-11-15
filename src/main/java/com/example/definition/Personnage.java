@@ -93,14 +93,20 @@ public class Personnage {
             return;
         }
         else {
+        
         int nbrattaque = Random(1, 5);
+        System.out.println(a);
+        System.out.println(a.chance + " " + this.chance);
         if (this.chance > a.chance) {
             if (this.getClass().getSimpleName().equals("Hero")) {
 
                 int compteur = 0;
+                System.out.println("Le Hero attaque " + nbrattaque + " fois");
+                System.out.println("ici");
+                System.out.println(this.chance + " " + a.chance);
                 while (compteur < nbrattaque) {
                     
-                    System.out.println("Le Hero attaque " + nbrattaque + " fois");
+                    
                     this.attaque(a);
                     if (a.vie <= 0) {
                         System.out.println(a.getClass().getSimpleName() + " est mort");
@@ -135,9 +141,61 @@ public class Personnage {
                     a.attaque(this);
                     System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
                 }
+            }
+        
+            
+            
+    }
+
+    else {
+        if (this.getClass().getSimpleName().equals("Hero")) {
+            System.out.println("C'est au tour de " + a.getClass().getSimpleName());
+            a.attaque(this);
+            System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
+            if (this.vie <= 0) {
+                System.out.println(this.getClass().getSimpleName() + " est mort");
+                return;
+            }
+            else {
+                int compteur = 0;
+                System.out.println("Le Hero attaque " + nbrattaque + " fois");
+                while (compteur < nbrattaque) {
+                    this.attaque(a);
+                    if (a.vie <= 0) {
+                        System.out.println(a.getClass().getSimpleName() + " est mort");
+                        return;
+                    }
+                    else {
+                        System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+                        compteur++;
+                    }
+                    
+                }
+                
+                
+            }
+
         }
-            
-            
+
+        else {
+            System.out.println("C'est au tour de " + a.getClass().getSimpleName());
+            a.attaque(this);
+            System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
+            if (this.vie <= 0) {
+                System.out.println(this.getClass().getSimpleName() + " est mort");
+                return;
+            }
+            else {
+                this.attaque(a);
+                if (a.vie <= 0) {
+                    System.out.println(a.getClass().getSimpleName() + " est mort");
+                    return;
+                }
+                else {
+                    System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+                }
+            }
+        }
     }
 }
 }
