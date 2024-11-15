@@ -52,11 +52,11 @@ public class Jeu {
     }
 
     char[][] map = {
-        {'H', '.', '.', '.', 'E'},
-        {'.', '.', '.', 'E', '.'},
+        {'H', '.', '.', '.', '.'},
+        {'.', '.', '.', '.', '.'},
         {'.', 'E', '.', '.', '.'},
         {'.', '.', '.', '.', 'E'},
-        {'E', '.', '.', '.', '.'}
+        {'.', '.', '.', '.', '.'}
     };
 
     public void choixperso() {
@@ -145,6 +145,21 @@ public class Jeu {
         cartee.afficherCarte();
         Scanner sc = new Scanner(System.in);
         while (true) {
+            // verifier s'il reste des ennemis sinon fin de partie
+            boolean ennemiRestant = false;
+            for (int i = 0; i < cartee.map.length; i++) {
+                for (int j = 0; j < cartee.map[i].length; j++) {
+                    if (cartee.map[i][j] == 'E') {
+                        ennemiRestant = true;
+                        break;
+                    }
+                }
+            }
+            if (ennemiRestant == false) {
+                System.out.println("Il n'y a plus d'ennemis");
+                System.out.println("Vous avez gagné");
+                findepartie();
+            }
                     System.out.println("");
                     System.out.println("Votre "+ a.getClass().getSimpleName() + " a " + a.vie + " points de vie");
                     System.out.println("Tour du joueur");
@@ -197,7 +212,6 @@ public class Jeu {
             boolean combat = false;
             if (cartee.map[newX][newY] == 'E') {
                 combat = true;
-                
             }
             
             cartee.deplacerHero(newX, newY);
