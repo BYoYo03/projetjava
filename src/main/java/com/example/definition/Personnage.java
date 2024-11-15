@@ -58,7 +58,34 @@ public class Personnage {
         this.arme = arme;
     }
 
-
+    public void attaquenbrhero(Personnage a) {
+        int nbrattaque = Random(1, 5);
+        int compteur = 0;
+        System.out.println("Le Hero attaque " + nbrattaque + " fois");
+        
+        while (compteur < nbrattaque) {
+            this.attaquehero(a);
+            if (a.vie <= 0) {
+                System.out.println(a.getClass().getSimpleName() + " est mort");
+                return;
+            } else {
+                compteur++;
+            }
+        }
+        
+        int degatsfinal = this.attaque - a.defense;
+        int degatstotaux = degatsfinal * nbrattaque;
+        int e = this.attaque - a.defense;
+        
+        System.out.println("Le Hero attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et lui inflige " + degatstotaux + " points de dégats car ses degats moins la défense de l'ennemie (" + e + ") sont multipliés par " + nbrattaque);
+        System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+    
+        if (a.vie <= 0) {
+            System.out.println(a.getClass().getSimpleName() + " est mort");
+            return;
+        }
+    }
+    
     private void attaquehero(Personnage a) {
         if (this.vie <= 0) {
             System.out.println(this.getClass().getSimpleName() + " est mort");
@@ -113,40 +140,19 @@ public class Personnage {
             return;
         }
         else {
-        
-        int nbrattaque = Random(1, 5);
         System.out.println("");
-
         if (this.chance > a.chance) {
             System.out.println("Vous êtes le plus rapide");
+            // 
             if (this.getClass().getSimpleName().equals("Hero")) {
 
-                int compteur = 0;
-                System.out.println("Le Hero attaque " + nbrattaque + " fois");
-
-                while (compteur < nbrattaque) {
-         
-                    this.attaquehero(a);
-                    
-                    if (a.vie <= 0) {
-                        System.out.println(a.getClass().getSimpleName() + " est mort");
-                        return;
-                    }
-                    else {
-                        compteur++;
-                    }
-                    
-                }
-                int degatsfinal = this.attaque - a.defense;
-                int degatstotaux = degatsfinal*nbrattaque;
-                int e =this.attaque - a.defense;
-                System.out.println("Le Hero attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et lui inflige " + degatstotaux + " points de dégats car ses degats moins la défense de l'ennemie ("+ e +") sont multipliés par " + nbrattaque);
-                System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+               this.attaquenbrhero(a);
 
                 if (a.vie <= 0) {
                     System.out.println(a.getClass().getSimpleName() + " est mort");
                     return;
                 }
+                //
                 else {
                     System.out.println("C'est au tour de " + a.getClass().getSimpleName());
                     a.attaque(this);
@@ -180,30 +186,8 @@ public class Personnage {
                 return;
             }
             else {
-                int compteur = 0;
-                System.out.println("C'est au tour du Hero");
-                System.out.println("Le Hero attaque " + nbrattaque + " fois");
-                while (compteur < nbrattaque) {
-                    this.attaquehero(a);
-                    if (a.vie <= 0) {
-                        System.out.println(a.getClass().getSimpleName() + " est mort");
-                        return;
-                    }
-                    else {
-                        compteur++;
-                    }
-                    
-                }
-                int degatsfinal = this.attaque - a.defense;
-                int degatstotaux = degatsfinal*nbrattaque;
-                int e = this.attaque - a.defense;
-                System.out.println("Le Hero attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et lui inflige " + degatstotaux + " points de dégats car ses degats moins la défense de l'ennemie ("+ e +") sont multipliés par " + nbrattaque);
-                System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
-                
-                
-                
+                this.attaquenbrhero(a);    
             }
-
         }
 
         else {
