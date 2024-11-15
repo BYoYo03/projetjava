@@ -58,6 +58,48 @@ public class Personnage {
         this.arme = arme;
     }
 
+    public void attaquespe(Personnage b) {
+        if (this.vie <= 0) {
+            System.out.println(this.getClass().getSimpleName() + " est mort");
+            return;
+        }
+        if (b.vie <= 0) {
+            System.out.println(b.getClass().getSimpleName() + " est mort");
+            return;
+        }
+        else { 
+            if (this instanceof Hero) {
+                Hero h = (Hero) this;
+                if (h.nbrcapacite > 0) {
+                    h.nbrcapacite = h.nbrcapacite - 1;
+                    b.vie = 0;
+                    System.out.println("Vous avez utilisé votre capacité et vous avez tué votre adversaire");
+                }
+                else {
+                    System.out.println("Vous n'avez plus de capacité");
+                }
+            }
+        }
+        }
+
+    private void attaquehero(Personnage a) {
+        if (this.vie <= 0) {
+            System.out.println(this.getClass().getSimpleName() + " est mort");
+            return;
+        }
+        if (a.vie <= 0) {
+            System.out.println(a.getClass().getSimpleName() + " est mort");
+            return;
+        }
+        else { 
+            int degat = this.attaque - a.defense;
+            if (degat < 0) {
+                degat = 0;
+            }
+            a.vie = a.vie - degat;    
+        }
+
+    }
     private void attaque(Personnage a) {
         if (this.vie <= 0) {
             System.out.println(this.getClass().getSimpleName() + " est mort");
@@ -73,7 +115,8 @@ public class Personnage {
                 degat = 0;
             }
             a.vie = a.vie - degat;
-            System.out.println(this.getClass().getSimpleName() + " attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et inflige " + degat + " dégats");
+            System.out.println(this.getClass().getSimpleName() + " attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et lui inflige " + degat + " points de dégats");
+
         }
 
     }
@@ -105,19 +148,24 @@ public class Personnage {
                 System.out.println("Le Hero attaque " + nbrattaque + " fois");
 
                 while (compteur < nbrattaque) {
+         
+                    this.attaquehero(a);
                     
-                    
-                    this.attaque(a);
                     if (a.vie <= 0) {
                         System.out.println(a.getClass().getSimpleName() + " est mort");
                         return;
                     }
                     else {
-                        System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
                         compteur++;
                     }
                     
                 }
+                int degatsfinal = this.attaque - a.defense;
+                int degatstotaux = degatsfinal*nbrattaque;
+                int e =this.attaque - a.defense;
+                System.out.println("Le Hero attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et lui inflige " + degatstotaux + " points de dégats car ses degats moins la défense de l'ennemie ("+ e +") sont multipliés par " + nbrattaque);
+                System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+
                 if (a.vie <= 0) {
                     System.out.println(a.getClass().getSimpleName() + " est mort");
                     return;
@@ -142,16 +190,12 @@ public class Personnage {
                     System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
                 }
             }
-        
-            
-            
     }
 
     else {
         System.out.println("Vous êtes le plus lent donc vous attaquez en dernier");
         System.out.println("");
         if (this.getClass().getSimpleName().equals("Hero")) {
-            System.out.println("C'est au tour de " + a.getClass().getSimpleName());
             a.attaque(this);
             System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
             if (this.vie <= 0) {
@@ -160,19 +204,25 @@ public class Personnage {
             }
             else {
                 int compteur = 0;
+                System.out.println("C'est au tour du Hero");
                 System.out.println("Le Hero attaque " + nbrattaque + " fois");
                 while (compteur < nbrattaque) {
-                    this.attaque(a);
+                    this.attaquehero(a);
                     if (a.vie <= 0) {
                         System.out.println(a.getClass().getSimpleName() + " est mort");
                         return;
                     }
                     else {
-                        System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
                         compteur++;
                     }
                     
                 }
+                int degatsfinal = this.attaque - a.defense;
+                int degatstotaux = degatsfinal*nbrattaque;
+                int e = this.attaque - a.defense;
+                System.out.println("Le Hero attaque " + a.getClass().getSimpleName() + " avec " + this.arme + " et lui inflige " + degatstotaux + " points de dégats car ses degats moins la défense de l'ennemie ("+ e +") sont multipliés par " + nbrattaque);
+                System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+                
                 
                 
             }
@@ -180,7 +230,7 @@ public class Personnage {
         }
 
         else {
-            System.out.println("C'est au tour de " + a.getClass().getSimpleName());
+            
             a.attaque(this);
             System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
             if (this.vie <= 0) {
@@ -188,6 +238,7 @@ public class Personnage {
                 return;
             }
             else {
+                System.out.println("C'est au tour de " + this.getClass().getSimpleName());
                 this.attaque(a);
                 if (a.vie <= 0) {
                     System.out.println(a.getClass().getSimpleName() + " est mort");

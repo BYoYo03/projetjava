@@ -64,7 +64,7 @@ public class Jeu {
             if (choix1.equals("A")) {
                 a.attaquepremier(b);
             } else if (choix1.equals("B")) {
-                System.out.println("Choix invalide");
+                a.attaquespe(b);
             } else if (choix1.equals("C")) {
                 System.out.println("Choix invalide");
             } else {
