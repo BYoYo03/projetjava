@@ -231,7 +231,7 @@ public class Jeu {
                 }
                 System.out.println("Vous avez rencontré " + random +" ennemi(s)");
                 for (int i = 0; i < random; i++) {
-                    int random2 = (int) (Math.random() * 3);
+                    int random2 = (int) (Math.random() * 4);
                     if (random2 == 0) {
                         Gangster b = new Gangster();
                         System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
