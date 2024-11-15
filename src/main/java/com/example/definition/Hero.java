@@ -1,7 +1,7 @@
 package com.example.definition;
 
 
-public class Hero extends Gentils {
+public class Hero extends Gentils implements Capacitespeciale{
     public String capacite= "one shot";
     public int nbrcapacite=1;
 
@@ -29,6 +29,18 @@ public class Hero extends Gentils {
 
     public void setNbrcapacite(int nbrcapacite) {
         this.nbrcapacite = nbrcapacite;
+    }
+
+    @Override
+    public void utiliserCapacite(Personnage cible) {
+        // Logique de la capacité spéciale "One Shot"
+        if (nbrcapacite > 0) {
+            nbrcapacite--;  // Réduit le nombre d'utilisations de la capacité
+            cible.vie = 0;  // Tué instantanément
+            System.out.println("Vous avez utilisé 'One Shot' et tué l'ennemi !");
+        } else {
+            System.out.println("Vous n'avez plus de capacité spéciale !");
+        }
     }
 
     

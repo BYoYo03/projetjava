@@ -58,29 +58,6 @@ public class Personnage {
         this.arme = arme;
     }
 
-    public void attaquespe(Personnage b) {
-        if (this.vie <= 0) {
-            System.out.println(this.getClass().getSimpleName() + " est mort");
-            return;
-        }
-        if (b.vie <= 0) {
-            System.out.println(b.getClass().getSimpleName() + " est mort");
-            return;
-        }
-        else { 
-            if (this instanceof Hero) {
-                Hero h = (Hero) this;
-                if (h.nbrcapacite > 0) {
-                    h.nbrcapacite = h.nbrcapacite - 1;
-                    b.vie = 0;
-                    System.out.println("Vous avez utilisé votre capacité et vous avez tué votre adversaire");
-                }
-                else {
-                    System.out.println("Vous n'avez plus de capacité");
-                }
-            }
-        }
-        }
 
     private void attaquehero(Personnage a) {
         if (this.vie <= 0) {
