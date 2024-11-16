@@ -1,19 +1,6 @@
 package com.example.definition;
 
-import java.nio.file.AtomicMoveNotSupportedException;
 import java.util.Scanner;
-
-import javax.sound.sampled.SourceDataLine;
-import javax.swing.BoundedRangeModel;
-import javax.swing.plaf.basic.BasicSeparatorUI;
-
-import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
-import java.util.logging.Level;
-import java.util.logging.Handler;
-
 
 
 
