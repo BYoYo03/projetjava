@@ -49,6 +49,28 @@ public class Jeu {
         System.exit(0);
     }
 
+    public void verifennemie(Carte cartee) {
+        // verifier s'il reste des ennemis sinon fin de partie
+        boolean ennemiRestant = false;
+        // parcourir la carte
+        for (int i = 0; i < cartee.map.length; i++) {
+            // parcourir la ligne   
+            for (int j = 0; j < cartee.map[i].length; j++) {
+                // si un ennemi est trouvé, sortir de la boucle et continuer le jeu
+                if (cartee.map[i][j] == 'E') {
+                    ennemiRestant = true;
+                    return;
+                }
+            }
+        }
+        // si aucun ennemi n'est trouvé, fin de partie
+        if (ennemiRestant == false) {
+            System.out.println("Il n'y a plus d'ennemis");
+            System.out.println("Vous avez gagné");
+            findepartie();
+        }
+    }
+
     public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
         
         System.out.println("");
@@ -73,7 +95,7 @@ public class Jeu {
                     System.out.println("Ce personnage n'a pas de capacité spéciale.");
                 }
             } else if (choix1.equals("C")) {
-                System.out.println("Choix invalide");
+                System.out.println("Tu ne peux pas fuir");
             } else {
                 System.out.println("Choix invalide");
             }
@@ -100,26 +122,10 @@ public class Jeu {
         cartee.afficherCarte();
         Scanner sc = new Scanner(System.in);
         while (true) {
-            // verifier s'il reste des ennemis sinon fin de partie
-            boolean ennemiRestant = false;
-            // parcourir la carte
-            for (int i = 0; i < cartee.map.length; i++) {
-                // parcourir la ligne   
-                for (int j = 0; j < cartee.map[i].length; j++) {
-                    // si un ennemi est trouvé, sortir de la boucle et continuer le jeu
-                    if (cartee.map[i][j] == 'E') {
-                        ennemiRestant = true;
-                        break;
-                    }
-                }
-            }
 
-            // si aucun ennemi n'est trouvé, fin de partie
-            if (ennemiRestant == false) {
-                System.out.println("Il n'y a plus d'ennemis");
-                System.out.println("Vous avez gagné");
-                findepartie();
-            }
+            // Vérification de la présence d'un ennemi sur la carte et fin de partie si aucun ennemi n'est trouvé
+             verifennemie(cartee);
+
             // Choix du joueur pour se déplacer
                     System.out.println("");
                     System.out.println("Votre "+ a.getClass().getSimpleName() + " a " + a.vie + " points de vie");

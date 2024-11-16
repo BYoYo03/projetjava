@@ -141,7 +141,6 @@ public class Personnage {
         System.out.println("");
         if (this.chance > a.chance) {
             System.out.println("Vous êtes le plus rapide");
-            // 
             if (this.getClass().getSimpleName().equals("Hero")) {
 
                this.attaquenbrhero(a);
