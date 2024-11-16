@@ -19,9 +19,7 @@ import java.util.logging.Handler;
 
 public class Jeu {
     
-    
     public void commencer() {
-        
         System.out.println("Le jeu commence");
     }
 
