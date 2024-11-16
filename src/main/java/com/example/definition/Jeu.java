@@ -2,20 +2,18 @@ package com.example.definition;
 
 import java.util.Scanner;
 
-
-
 public class Jeu {
-    
+
     public void commencer() {
         System.out.println("Le jeu commence");
     }
 
     char[][] map = {
-        {'H', '.', '.', '.', '.'},
-        {'.', '.', '.', '.', '.'},
-        {'.', 'E', '.', '.', '.'},
-        {'.', '.', '.', '.', 'E'},
-        {'.', '.', '.', '.', '.'}
+            { 'H', '.', '.', '.', '.' },
+            { '.', '.', '.', '.', '.' },
+            { '.', 'E', '.', '.', '.' },
+            { '.', '.', '.', '.', 'E' },
+            { '.', '.', '.', '.', '.' }
     };
 
     public void choixperso() {
@@ -54,7 +52,7 @@ public class Jeu {
         boolean ennemiRestant = false;
         // parcourir la carte
         for (int i = 0; i < cartee.map.length; i++) {
-            // parcourir la ligne   
+            // parcourir la ligne
             for (int j = 0; j < cartee.map[i].length; j++) {
                 // si un ennemi est trouvé, sortir de la boucle et continuer le jeu
                 if (cartee.map[i][j] == 'E') {
@@ -72,11 +70,11 @@ public class Jeu {
     }
 
     public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
-        
+
         System.out.println("");
 
         System.out.println("Specs de l'ennemi : " + b);
-                            
+
         while (a.vie > 0 && b.vie > 0) {
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
@@ -85,12 +83,12 @@ public class Jeu {
             System.out.println("C. Fuir");
             System.out.println("");
             String choix1 = sc1.next();
-            
+
             if (choix1.equals("A")) {
                 a.attaquepremier(b);
             } else if (choix1.equals("B")) {
                 if (a instanceof Capacitespeciale) {
-                    ((Capacitespeciale) a).utiliserCapacite(b);  // Utilisation de la capacité spéciale
+                    ((Capacitespeciale) a).utiliserCapacite(b); // Utilisation de la capacité spéciale
                 } else {
                     System.out.println("Ce personnage n'a pas de capacité spéciale.");
                 }
@@ -100,7 +98,7 @@ public class Jeu {
                 System.out.println("Choix invalide");
             }
         }
-        
+
         if (b.vie <= 0) {
             System.out.println("Vous avez gagné");
             System.out.println("");
@@ -112,35 +110,33 @@ public class Jeu {
             cartee.map[cartee.x][cartee.y] = 'X';
         }
     }
-    
-    
+
     public void debuterpartie(Personnage a) {
         System.out.println("La partie commence");
-        
-
         Carte cartee = new Carte(map, 0, 0);
         cartee.afficherCarte();
         Scanner sc = new Scanner(System.in);
         while (true) {
 
-            // Vérification de la présence d'un ennemi sur la carte et fin de partie si aucun ennemi n'est trouvé
-             verifennemie(cartee);
+            // Vérification de la présence d'un ennemi sur la carte et fin de partie si
+            // aucun ennemi n'est trouvé
+            verifennemie(cartee);
 
             // Choix du joueur pour se déplacer
-                    System.out.println("");
-                    System.out.println("Votre "+ a.getClass().getSimpleName() + " a " + a.vie + " points de vie");
-                    System.out.println("Tour du joueur");
-                    System.out.println("z. Monter ");
-                    System.out.println("q. Gauche ");
-                    System.out.println("s. Descendre ");
-                    System.out.println("d. Droite ");
-                    System.out.println("2. Quitter");
-                    String choix = sc.next();
-            
+            System.out.println("");
+            System.out.println("Votre " + a.getClass().getSimpleName() + " a " + a.vie + " points de vie");
+            System.out.println("Tour du joueur");
+            System.out.println("z. Monter ");
+            System.out.println("q. Gauche ");
+            System.out.println("s. Descendre ");
+            System.out.println("d. Droite ");
+            System.out.println("2. Quitter");
+            String choix = sc.next();
+
             // Déplacement du joueur
             int newX = cartee.x;
             int newY = cartee.y;
-            
+
             if (choix.equals("z")) {
                 if (cartee.x > 0) {
                     newX -= 1;
@@ -176,45 +172,45 @@ public class Jeu {
                 System.out.println("Choix invalide");
                 continue;
             }
-    
+
             boolean combat = false;
             if (cartee.map[newX][newY] == 'E') {
                 combat = true;
             }
-            
+
             cartee.deplacerHero(newX, newY);
             System.out.println("");
-    
+
             if (combat) {
                 int random = (int) (Math.random() * 3);
                 if (random == 0) {
                     random = 1;
                 }
-                System.out.println("Vous avez rencontré " + random +" ennemi(s)");
+                System.out.println("Vous avez rencontré " + random + " ennemi(s)");
                 for (int i = 0; i < random; i++) {
                     int random2 = (int) (Math.random() * 4);
                     if (random2 == 0) {
                         Gangster b = new Gangster();
-                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        System.out.println("L'ennemi n" + (i + 1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     } else if (random2 == 1) {
                         Brigand b = new Brigand();
-                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        System.out.println("L'ennemi n" + (i + 1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     } else if (random2 == 2) {
                         Catcheur b = new Catcheur();
-                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        System.out.println("L'ennemi n" + (i + 1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     } else {
                         Monstre b = new Monstre();
-                        System.out.println("L'ennemi n" + (i+1) + " est un " + b.getClass().getSimpleName());
+                        System.out.println("L'ennemi n" + (i + 1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     }
-                    
+
                 }
-               
+
             }
-    
+
             cartee.afficherCarte();
         }
     }

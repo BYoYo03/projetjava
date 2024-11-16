@@ -1,6 +1,6 @@
 package com.example.definition;
 
-public class Catcheur extends Ennemies{
+public class Catcheur extends Ennemies {
     public Catcheur() {
         super();
         this.setVie(200);
@@ -9,7 +9,8 @@ public class Catcheur extends Ennemies{
     }
 
     public String toString() {
-        return "Catcheur [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance + ", arme=" + arme + "]";
+        return "Catcheur [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance
+                + ", arme=" + arme + "]";
     }
 
 }

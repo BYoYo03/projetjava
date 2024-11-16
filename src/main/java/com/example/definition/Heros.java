@@ -1,13 +1,14 @@
 package com.example.definition;
 
-public class Heros extends Personnage{
+public class Heros extends Personnage {
 
     public Heros() {
-        super(50, 10, 5, 1, "Baton"); 
+        super(50, 10, 5, 1, "Baton");
     }
 
     public String toString() {
-        return "Gentils [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance + ", arme=" + arme + "]";
+        return "Gentil [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance + ", arme="
+                + arme + "]";
     }
 
 }
