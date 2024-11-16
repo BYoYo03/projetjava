@@ -1,6 +1,5 @@
 package com.example.definition;
 
-
 public class Gangster extends Ennemies {
 
     public Gangster() {
@@ -9,11 +8,9 @@ public class Gangster extends Ennemies {
         this.setArme("Pistolet");
     }
 
-
     public String toString() {
-        return "Gangster [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance + ", arme=" + arme + "]";
+        return "Gangster [vie=" + vie + ", attaque=" + attaque + ", defense=" + defense + ", chance=" + chance
+                + ", arme=" + arme + "]";
     }
 
-
-    
 }

@@ -3,14 +3,9 @@ package com.example.definition;
 public class Carte {
     int x = 0;
     int y = 0;
-    char[][] map = {
-        {'H', '.', '.', '.', 'E'},
-        {'.', '.', '.', 'E', '.'},
-        {'.', 'E', '.', '.', '.'},
-        {'.', '.', '.', '.', 'E'},
-        {'E', '.', '.', '.', '.'}
-    };
-    Carte(char [][] map, int x, int y){
+    char[][] map;
+
+    Carte(char[][] map, int x, int y) {
         this.map = map;
         this.x = x;
         this.y = y;
@@ -24,6 +19,7 @@ public class Carte {
             System.out.println();
         }
     }
+
     public void deplacerHero(int newX, int newY) {
         map[x][y] = '.';
         x = newX;
@@ -35,4 +31,3 @@ public class Carte {
         }
     }
 }
-
