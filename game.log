@@ -1,32 +1,54 @@
-nov. 16, 2024 12:13:22 AM com.example.definition.Jeu commencer
 INFO: Le jeu commence
-nov. 16, 2024 12:15:23 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:15:27 AM com.example.definition.Jeu choixperso
-INFO: Choix invalide
-nov. 16, 2024 12:15:27 AM com.example.definition.Jeu choixperso
-INFO: Choix invalide
-nov. 16, 2024 12:15:28 AM com.example.definition.Jeu choixperso
-INFO: Choix invalide
-nov. 16, 2024 12:15:29 AM com.example.definition.Jeu choixperso
-INFO: Choix invalide
-nov. 16, 2024 12:15:30 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Hero
-nov. 16, 2024 12:18:40 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:22:20 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:22:25 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Hero
-nov. 16, 2024 12:23:35 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:23:40 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Hero
-nov. 16, 2024 12:37:19 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:37:23 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Chevalier
-nov. 16, 2024 12:40:09 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:40:20 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Magicien
+INFO: Choix de la carte
+INFO: Affichage des cartes disponibles
+INFO: Affichage des cartes disponibles
+INFO: Carte choisie : Foret
+INFO: Choix du personnage
+INFO: Hero choisi
+INFO: La partie commence
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la gauche
+INFO: Déplacement du joueur vers la gauche
+INFO: Déplacement du joueur vers le haut
+INFO: Vous avez rencontré 1 ennemi(s)
+INFO: L'ennemi n1 est un Gangster
+INFO: Specs de l'ennemi : Gangster [vie=50, attaque=10, defense=5, chance=2, arme=Pistolet]
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: L'ennemie attaque en premier !
+INFO: Gangster attaque Hero avec Pistolet et lui inflige 5 points de dégats
+INFO: Hero a 45 points de vie restant
+INFO: Le Hero attaque 5 fois
+INFO: Le Hero attaque Gangster avec Epee et lui inflige 25 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 5
+INFO: Gangster a 25 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: L'ennemie attaque en premier !
+INFO: Gangster attaque Hero avec Pistolet et lui inflige 5 points de dégats
+INFO: Hero a 40 points de vie restant
+INFO: Le Hero attaque 4 fois
+INFO: Le Hero attaque Gangster avec Epee et lui inflige 20 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 4
+INFO: Gangster a 5 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: L'ennemie attaque en premier !
+INFO: Gangster attaque Hero avec Pistolet et lui inflige 5 points de dégats
+INFO: Hero a 35 points de vie restant
+INFO: Le Hero attaque 1 fois
+INFO: Gangster est mort
+INFO: Vous avez gagné
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Vous avez rencontré 1 ennemi(s)
+INFO: L'ennemi n1 est un Brigand
+INFO: Specs de l'ennemi : Brigand [vie=50, attaque=10, defense=5, chance=0, arme=Poings]
+INFO: Utilisation de la capacité spéciale de Hero [vie=35, attaque=10, defense=5, chance=1, arme=Epee, capacite=one shot nbrcapacite=1] sur Brigand [vie=50, attaque=10, defense=5, chance=0, arme=Poings]
+INFO: Vous avez utilisé 'One Shot' et tué l'ennemi !
+INFO: Vous avez gagné
+INFO: Il n'y a plus d'ennemis
+INFO: Vous avez gagné
+INFO: La partie est terminée
