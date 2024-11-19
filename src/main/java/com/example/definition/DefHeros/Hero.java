@@ -1,5 +1,9 @@
-package com.example.definition;
+package com.example.definition.DefHeros;
 import java.util.logging.Logger;
+
+import com.example.definition.Jeu;
+import com.example.definition.TypesPerso.Heros;
+import com.example.definition.TypesPerso.Personnage;
 
 public class Hero extends Heros implements Capacitespeciale {
     public String capacite = "one shot";
@@ -38,7 +42,7 @@ public class Hero extends Heros implements Capacitespeciale {
         // Logique de la capacité spéciale "One Shot"
         if (nbrcapacite > 0) {
             nbrcapacite--; // Réduit le nombre d'utilisations de la capacité
-            cible.vie = 0; // Tué instantanément
+            cible.setVie(0); // Tue l'ennemi
             logger.info("Vous avez utilisé 'One Shot' et tué l'ennemi !");
             System.out.println("Vous avez utilisé 'One Shot' et tué l'ennemi !");
         } else {

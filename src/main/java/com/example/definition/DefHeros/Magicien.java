@@ -1,5 +1,9 @@
-package com.example.definition;
+package com.example.definition.DefHeros;
 import java.util.logging.Logger;
+
+import com.example.definition.Jeu;
+import com.example.definition.TypesPerso.Heros;
+import com.example.definition.TypesPerso.Personnage;
 
 public class Magicien extends Heros implements Capacitespeciale {
     public String capacite = "soin";

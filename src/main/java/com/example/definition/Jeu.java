@@ -6,7 +6,17 @@ import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+
+
+import com.example.definition.DefEnnemies.Brigand;
+import com.example.definition.DefEnnemies.Catcheur;
+import com.example.definition.DefEnnemies.Gangster;
+import com.example.definition.DefEnnemies.Monstre;
+import com.example.definition.DefHeros.Capacitespeciale;
+import com.example.definition.DefHeros.Chevalier;
+import com.example.definition.DefHeros.Hero;
+import com.example.definition.DefHeros.Magicien;
+import com.example.definition.TypesPerso.Personnage;
 
 public class Jeu {
 
@@ -137,7 +147,7 @@ public class Jeu {
         System.out.println("");
         System.out.println("Specs de l'ennemi : " + b);
         logger.info("Specs de l'ennemi : " + b);
-        while (a.vie > 0 && b.vie > 0) {
+        while (a.getVie() > 0 && b.getVie() > 0) {
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
             System.out.println("A. Attaquer");
@@ -166,12 +176,12 @@ public class Jeu {
             }
         }
 
-        if (b.vie <= 0) {
+        if (b.getVie() <= 0) {
             logger.info("Vous avez gagné");
             System.out.println("Vous avez gagné");
             System.out.println("");
             cartee.map[cartee.x][cartee.y] = 'H';
-        } else if (a.vie <= 0) {
+        } else if (a.getVie() <= 0) {
             logger.info("Vous avez perdu");
             System.out.println("Vous avez perdu");
             findepartie();
@@ -240,7 +250,7 @@ public class Jeu {
 
             // Choix du joueur pour se déplacer
             System.out.println("");
-            System.out.println("Votre " + a.getClass().getSimpleName() + " a " + a.vie + " points de vie");
+            System.out.println("Votre " + a.getClass().getSimpleName() + " a " + a.getVie() + " points de vie");
             System.out.println("Tour du joueur");
             System.out.println("z. Monter ");
             System.out.println("q. Gauche ");

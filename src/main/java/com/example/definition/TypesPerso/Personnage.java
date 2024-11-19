@@ -1,15 +1,17 @@
-package com.example.definition;
+package com.example.definition.TypesPerso;
 
 import java.util.logging.Logger;
+
+import com.example.definition.Jeu;
 
 
 
 public class Personnage {
-    int vie;
-    int attaque;
-    int defense;
-    int chance;
-    String arme;
+    protected int vie;
+    protected int attaque;
+    protected int defense;
+    protected int chance;
+    protected String arme;
 
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
 
