@@ -174,7 +174,7 @@ public class Personnage {
                     }
 
                     else {
-                        logger.info(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+                        logger.info("C'est au tour de " + a.getClass().getSimpleName());
                         System.out.println("C'est au tour de " + a.getClass().getSimpleName());
                         a.attaque(this);
                         logger.info(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
@@ -191,6 +191,7 @@ public class Personnage {
                     } else {
                         logger.info(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
                         System.out.println(a.getClass().getSimpleName() + " a " + a.vie + " points de vie restant");
+                        logger.info("C'est au tour de " + a.getClass().getSimpleName());
                         System.out.println("C'est au tour de " + a.getClass().getSimpleName());
                         a.attaque(this);
                         logger.info(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
