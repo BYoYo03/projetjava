@@ -14,7 +14,7 @@ public class App {
         System.out.println("");
         Jeu jeu = new Jeu();
         jeu.commencer();
-        jeu.choixperso();
+        jeu.choixcarte();
     }
 
 }

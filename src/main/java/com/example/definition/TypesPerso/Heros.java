@@ -1,4 +1,4 @@
-package com.example.definition;
+package com.example.definition.TypesPerso;
 
 public class Heros extends Personnage {
 

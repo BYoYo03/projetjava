@@ -1,32 +1,123 @@
-nov. 16, 2024 12:13:22 AM com.example.definition.Jeu commencer
 INFO: Le jeu commence
-nov. 16, 2024 12:15:23 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:15:27 AM com.example.definition.Jeu choixperso
+INFO: Choix de la carte
+INFO: Affichage des cartes disponibles
+INFO: Carte choisie : Foret
+INFO: Choix du personnage
+INFO: L'utilisateur a choisi un personnage invalide
+INFO: Choix du personnage
+INFO: L'utilisateur a choisi un personnage invalide
+INFO: Choix du personnage
+INFO: Hero choisi
+INFO: La partie commence
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la gauche
+INFO: Déplacement du joueur vers le haut
+INFO: Vous avez rencontré 1 ennemi(s)
+INFO: L'ennemi n1 est un Brigand
+INFO: Specs de l'ennemi : Brigand [vie=50, attaque=10, defense=5, chance=0, arme=Poings]
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 4 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 20 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 4
+INFO: Brigand a 30 points de vie restant
+INFO: Brigand a 30 points de vie restant
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 45 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Brigand a 20 points de vie restant
+INFO: Brigand a 20 points de vie restant
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 40 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Brigand a 15 points de vie restant
+INFO: Brigand a 15 points de vie restant
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 35 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 4 fois
+INFO: Brigand est mort
+INFO: Brigand est mort
+INFO: Vous avez gagné
 INFO: Choix invalide
-nov. 16, 2024 12:15:27 AM com.example.definition.Jeu choixperso
 INFO: Choix invalide
-nov. 16, 2024 12:15:28 AM com.example.definition.Jeu choixperso
 INFO: Choix invalide
-nov. 16, 2024 12:15:29 AM com.example.definition.Jeu choixperso
-INFO: Choix invalide
-nov. 16, 2024 12:15:30 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Hero
-nov. 16, 2024 12:18:40 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:22:20 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:22:25 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Hero
-nov. 16, 2024 12:23:35 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:23:40 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Hero
-nov. 16, 2024 12:37:19 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:37:23 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Chevalier
-nov. 16, 2024 12:40:09 AM com.example.definition.Jeu commencer
-INFO: Le jeu commence
-nov. 16, 2024 12:40:20 AM com.example.definition.Jeu choixperso
-INFO: Le joueur a choisi le Magicien
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la droite
+INFO: Vous avez rencontré 2 ennemi(s)
+INFO: L'ennemi n1 est un Monstre
+INFO: Specs de l'ennemi : Monstre [vie=50, attaque=10, defense=5, chance=0, arme=Dague]
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Monstre a 40 points de vie restant
+INFO: Monstre a 40 points de vie restant
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 30 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Monstre a 30 points de vie restant
+INFO: Monstre a 30 points de vie restant
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 25 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Monstre a 25 points de vie restant
+INFO: Monstre a 25 points de vie restant
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 20 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Monstre a 20 points de vie restant
+INFO: Monstre a 20 points de vie restant
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 15 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Monstre a 10 points de vie restant
+INFO: Monstre a 10 points de vie restant
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 10 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Monstre a 5 points de vie restant
+INFO: Monstre a 5 points de vie restant
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 5 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 4 fois
+INFO: Monstre est mort
+INFO: Monstre est mort
+INFO: Vous avez gagné
+INFO: L'ennemi n2 est un Monstre
+INFO: Specs de l'ennemi : Monstre [vie=50, attaque=10, defense=5, chance=0, arme=Dague]
+INFO: Utilisation de la capacité spéciale de Hero [vie=5, attaque=10, defense=5, chance=1, arme=Epee, capacite=one shot nbrcapacite=1] sur Monstre [vie=50, attaque=10, defense=5, chance=0, arme=Dague]
+INFO: Vous avez utilisé 'One Shot' et tué l'ennemi !
+INFO: Vous avez gagné
+INFO: Il n'y a plus d'ennemis
+INFO: Vous avez gagné
+INFO: La partie est terminée
