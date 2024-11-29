@@ -2,6 +2,8 @@ package com.example.definition.TypesPerso;
 
 import java.util.logging.Logger;
 
+import javax.sound.sampled.SourceDataLine;
+
 import com.example.definition.Jeu;
 import com.example.definition.DefHeros.Capacitespeciale;
 
@@ -91,6 +93,7 @@ public class Personnage {
         }
         if (changement instanceof Capacitespeciale) {
             // verifier si le hero a l'attribut changement en true
+            System.out.println("Le hero uilise la capacité spéciale de " + changement.getClass().getSimpleName());
             ((Capacitespeciale) changement).utiliserCapacite(cible);
         }
 

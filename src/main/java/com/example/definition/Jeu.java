@@ -262,6 +262,7 @@ public class Jeu {
                 logger.info("Recharger sa capacité spéciale");
                 System.out.println("Recharger sa capacité spéciale");
                 ((Capacitespeciale) a).rechargerCapacite();
+                a.setNbrchangement(false);
             }
         } else if (random == 3) {
             if (a instanceof Capacitespeciale) {
