@@ -55,7 +55,7 @@ public class Jeu {
     }
 
     char[][] foret = {
-            { 'H', '.', '.', '.', '.' },
+            { 'H', '.', '.', '.', 'O' },
             { '.', '.', '.', '.', '.' },
             { '.', 'E', '.', '.', '.' },
             { '.', '.', '.', '.', 'E' },
@@ -66,7 +66,7 @@ public class Jeu {
             { 'H', '.', '.', '.', '.' },
             { '.', '.', '.', '.', 'E' },
             { '.', '.', 'E', '.', '.' },
-            { '.', 'E', '.', '.', '.' },
+            { '.', 'E', '.', 'O', '.' },
             { '.', '.', '.', 'E', '.' }
     };
     char[][] chateau = {
@@ -119,7 +119,6 @@ public class Jeu {
     }
 
     public void verifennemie(Carte cartee) {
-
         // verifier s'il reste des ennemis sinon fin de partie
         boolean ennemiRestant = false;
         // parcourir la carte

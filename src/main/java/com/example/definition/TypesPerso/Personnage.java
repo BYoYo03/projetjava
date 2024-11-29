@@ -111,7 +111,6 @@ public class Personnage {
             this.attaquehero(a);
             if (a.vie <= 0) {
                 logger.info(a.getClass().getSimpleName() + " est mort");
-                System.out.println(a.getClass().getSimpleName() + " est mort");
                 return;
             } else {
                 compteur++;
