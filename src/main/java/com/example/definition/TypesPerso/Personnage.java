@@ -3,6 +3,7 @@ package com.example.definition.TypesPerso;
 import java.util.logging.Logger;
 
 import com.example.definition.Jeu;
+import com.example.definition.DefHeros.Capacitespeciale;
 
 
 
@@ -12,6 +13,9 @@ public class Personnage {
     protected int defense;
     protected int chance;
     protected String arme;
+    protected boolean changement = false;
+    protected boolean nbrchangement = false;
+
 
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
 
@@ -62,6 +66,36 @@ public class Personnage {
     public void setArme(String arme) {
         this.arme = arme;
     }
+
+
+    public void setChangement(boolean changement) {
+        this.changement = changement;
+    }
+
+    public boolean getChangement() {
+        return changement;
+    }
+
+    public void setNbrchangement(boolean nbrchangement) {
+        this.nbrchangement = nbrchangement;
+    }
+
+    public boolean getNbrchangement() {
+        return nbrchangement;
+    }
+
+    public void changementattaquecapacite(Personnage changement, Personnage cible) {
+        if (nbrchangement == true) {
+            System.out.println("Le hero a déjà utilisé sa capacité spéciale");
+            return;
+        }
+        if (changement instanceof Capacitespeciale) {
+            // verifier si le hero a l'attribut changement en true
+            ((Capacitespeciale) changement).utiliserCapacite(cible);
+        }
+
+    }
+
 
     public void attaquenbrhero(Personnage a) {
 

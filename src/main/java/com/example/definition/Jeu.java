@@ -74,7 +74,7 @@ public class Jeu {
             { '.', '.', '.', '.', '.' },
             { '.', 'E', '.', '.', '.' },
             { '.', '.', '.', '.', 'E' },
-            { '.', '.', '.', '.', '.' }
+            { '.', '.', 'O', '.', '.' }
     };
 
 
@@ -161,8 +161,16 @@ public class Jeu {
                 a.attaquepremier(b);
             } else if (choix1.equals("B")) {
                 if (a instanceof Capacitespeciale) {
-                    logger.info("Utilisation de la capacité spéciale de " + a + " sur " + b);
-                    ((Capacitespeciale) a).utiliserCapacite(b); // Utilisation de la capacité spéciale
+                    // verifier si le hero a l'attribut changement en true
+                    if (a.getChangement() == true) {
+                        Personnage temp = new Chevalier();
+                        a.changementattaquecapacite(temp, b);
+                        a.setNbrchangement(true);
+                    } else if (a.getChangement() == false) {
+                        logger.info("Utilisation de la capacité spéciale de " + a + " sur " + b);
+                        ((Capacitespeciale) a).utiliserCapacite(b); // Utilisation de la capacité spéciale
+                    }
+                    
                 } else {
                     logger.info("Ce personnage n'a pas de capacité spéciale");
                     System.out.println("Ce personnage n'a pas de capacité spéciale.");
@@ -234,7 +242,37 @@ public class Jeu {
             logger.info("Choix invalide");
             choixcarte();
         }
-    }   
+    }
+
+    public void objet(Personnage a, Carte cartee, int newX, int newY){
+        int random = (int) (Math.random() * 4);
+        random = 3;
+        if (random == 0) {
+            logger.info("Vous avez trouvé un objet : Potion de vie");
+            System.out.println("Vous avez trouvé un objet : Potion de vie");
+            a.setVie(100);
+            System.out.println("Votre vie est maintenant à 100");
+        } else if (random == 1) {
+            logger.info("Vous avez trouvé un objet : Potion de force");
+            System.out.println("Vous avez trouvé un objet : Potion de force");
+            a.setAttaque(25);
+            System.out.println("Votre attaque est maintenant à 25");
+        } else if (random == 2) {
+            if (a instanceof Capacitespeciale) {
+                logger.info("Recharger sa capacité spéciale");
+                System.out.println("Recharger sa capacité spéciale");
+                ((Capacitespeciale) a).rechargerCapacite();
+            }
+        } else if (random == 3) {
+            if (a instanceof Capacitespeciale) {
+                logger.info("Changement de capacité spéciale");
+                System.out.println("Changement de capacité spéciale");
+                a.setChangement(true);
+            }
+        }
+        cartee.map[newX][newY] = 'H';
+    }
+
 
     public void debuterpartie(Personnage a, Carte cartee) {
         System.out.println("");
@@ -314,8 +352,19 @@ public class Jeu {
                 combat = true;
             }
 
+            boolean objet = false;
+            if (cartee.map[newX][newY] == 'O') {
+                objet = true;
+            }
+
+
+            // Déplacement du joueur
             cartee.deplacerHero(newX, newY);
             System.out.println("");
+
+            if (objet) {
+                objet(a, cartee, newX, newY);
+            }
 
             if (combat) {
                 int random = (int) (Math.random() * 3);
@@ -351,6 +400,7 @@ public class Jeu {
                 }
 
             }
+
 
             cartee.afficherCarte();
         }

@@ -59,4 +59,10 @@ public class Chevalier extends Heros implements Capacitespeciale {
         }
     }
 
+    public void rechargerCapacite() {
+        nbrcapacite = 1;
+        logger.info("Vous avez rechargé votre capacité spéciale !");
+        System.out.println("Vous avez rechargé votre capacité spéciale !");
+    }
+
 }

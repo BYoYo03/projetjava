@@ -8,10 +8,13 @@ import com.example.definition.TypesPerso.Personnage;
 public class Hero extends Heros implements Capacitespeciale {
     public String capacite = "one shot";
     public int nbrcapacite = 1;
+    public boolean changement = false;
+    
 
     public Hero() {
         super();
         this.setArme("Epee");
+
     }
 
     public String toString() {
@@ -35,6 +38,7 @@ public class Hero extends Heros implements Capacitespeciale {
         this.nbrcapacite = nbrcapacite;
     }
 
+
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
 
     @Override
@@ -51,4 +55,18 @@ public class Hero extends Heros implements Capacitespeciale {
         }
     }
 
+    public void rechargerCapacite() {
+        if (nbrcapacite == 1) {
+            logger.info("Je voulais rehcarcger ta capacité spéciale mais tu l'as déjà !");
+            System.out.println("Je voulais rehcarcger ta capacité spéciale mais tu l'as déjà !");
+            return;
+        }
+        nbrcapacite = 1;
+        logger.info("Vous avez rechargé votre capacité spéciale !");
+        System.out.println("Vous avez rechargé votre capacité spéciale !");
+    }
+
+    public void changerCapacite() {
+        changement = true;
+    }
 }
