@@ -7,6 +7,7 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.text.Utilities;
 
 import com.example.definition.DefEnnemies.Brigand;
 import com.example.definition.DefEnnemies.Catcheur;
@@ -55,7 +56,7 @@ public class Jeu {
     }
 
     char[][] foret = {
-            { 'H', '.', '.', '.', 'O' },
+            { 'H', '.', 'C', '.', 'O' },
             { '.', '.', '.', '.', '.' },
             { '.', 'E', '.', '.', '.' },
             { '.', '.', '.', '.', 'E' },
@@ -141,6 +142,80 @@ public class Jeu {
             findepartie();
         }
     }
+
+    public void combatmulti(Personnage a, Personnage temp1, Personnage temp2, Carte cartee, int x, int y) {
+        System.out.println("");
+        System.out.println("Specs de l'ennemi : " + temp1);
+        logger.info("Specs de l'ennemi 1 : " + temp1);
+        System.out.println("Specs de l'ennemi : " + temp2);
+        logger.info("Specs de l'ennemi 1 : " + temp2);
+        while(a.getVie() > 0 && (temp1.getVie()  > 0 || temp2.getVie() > 0)) {
+            Scanner sc1 = new Scanner(System.in);
+            System.out.println("");
+            System.out.println("A. Attaquer ennemie 1 " + temp1.getClass().getSimpleName());
+            System.out.println("B. Attaquer ennemie 2 " + temp2.getClass().getSimpleName());
+            System.out.println("C. Capacité spéciale ennemie 1 " + temp1.getClass().getSimpleName());
+            System.out.println("D. Capacité spéciale ennemie 2 " + temp2.getClass().getSimpleName());
+            System.out.println("E. Fuir");
+            System.out.println("");
+            String choix1 = sc1.next();
+
+            if (choix1.equals("A")) {
+                logger.info("Vérification de qui attaque en premier entre le joueur et l'ennemi 1 et attaque");
+                if (temp1.getVie() > 0) {
+                    a.attaquepremier(temp1);
+                } else {
+                    System.out.println("L'ennemi 1 est mort, vous pouvez attaquer l'ennemi 2 " + temp2.getClass().getSimpleName());
+                }
+            } else if (choix1.equals("B")) {
+                logger.info("Vérification de qui attaque en premier entre le joueur et l'ennemi 2 et attaque");
+                if (temp2.getVie() > 0) {
+                    a.attaquepremier(temp2);
+                } else {
+                    System.out.println("L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName()); 
+                }
+            } else if (choix1.equals("C")) {
+                logger.info("Utilisation de la capacité spéciale de l'ennemi 1 par le joueur");
+                if (temp1.getVie() > 0) {
+                    ((Capacitespeciale) a).utiliserCapacite(temp1);
+                } else {
+                    logger.info("L'ennemi 1 est mort");
+                    System.out.println("L'ennemi 1 est mort, vous pouvez attaquer l'ennemi 2 " + temp2.getClass().getSimpleName());
+                }
+            } else if (choix1.equals("D")) {
+                
+                if (temp2.getVie() > 0) {
+                    logger.info("Utilisation de la capacité spéciale de l'ennemi 2 par le joueur");
+                    ((Capacitespeciale) a).utiliserCapacite(temp2);
+                } else {
+                    System.out.println("L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName());
+                }
+            } else if (choix1.equals("E")) {
+                logger.info("Pas de fuite");
+                System.out.println("Vous avez fui");
+            } else {
+                logger.info("Choix invalide");
+                System.out.println("Choix invalide");
+            }
+        }
+
+        if (temp1.getVie() <= 0 && temp2.getVie() <= 0) {
+            logger.info("Vous avez gagné");
+            System.out.println("Vous avez gagné");
+            System.out.println("");
+            cartee.map[cartee.x][cartee.y] = 'H';
+        } else if (a.getVie() <= 0) {
+            logger.info("Vous avez perdu");
+            System.out.println("Vous avez perdu");
+            findepartie();
+        } else { 
+            cartee.map[cartee.x][cartee.y] = 'X';
+        }
+    }
+
+        
+
+    
 
     public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
         System.out.println("");
@@ -258,14 +333,14 @@ public class Jeu {
             System.out.println("Votre attaque est maintenant à 25");
         } else if (random == 2) {
             if (a instanceof Capacitespeciale) {
-                logger.info("Recharger sa capacité spéciale");
+                logger.info("Vous avez trouvé un objet : Recharger sa capacité spéciale");
                 System.out.println("Recharger sa capacité spéciale");
                 ((Capacitespeciale) a).rechargerCapacite();
                 a.setNbrchangement(false);
             }
         } else if (random == 3) {
             if (a instanceof Capacitespeciale) {
-                logger.info("Changement de capacité spéciale");
+                logger.info("Vous avez trouvé un objet : : Changement de capacité spéciale");
                 System.out.println("Changement de capacité spéciale");
                 a.setChangement(true);
             }
@@ -357,6 +432,11 @@ public class Jeu {
                 objet = true;
             }
 
+            boolean combatmulti = false;
+            if (cartee.map[newX][newY] == 'C') {
+                combatmulti = true;
+            }
+
 
             // Déplacement du joueur
             cartee.deplacerHero(newX, newY);
@@ -399,6 +479,16 @@ public class Jeu {
 
                 }
 
+            }
+
+            if (combatmulti) {
+                int random1 = 2;
+                logger.info("Vous avez rencontré " + random1 + " ennemi(s)");
+                System.out.println("Vous avez rencontré " + random1 + " ennemi(s)");
+                Personnage temp1 = new Brigand();
+                Personnage temp2 = new Monstre();
+                combatmulti(a, temp1, temp2, cartee, newX, newY);
+                
             }
 
 
