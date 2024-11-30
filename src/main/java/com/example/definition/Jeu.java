@@ -78,8 +78,6 @@ public class Jeu {
             { '.', '.', 'O', '.', '.' }
     };
 
-
-
     public void choixperso(Carte cartee) {
         logger.info("Choix du personnage");
         System.out.println("");
@@ -149,7 +147,7 @@ public class Jeu {
         logger.info("Specs de l'ennemi 1 : " + temp1);
         System.out.println("Specs de l'ennemi : " + temp2);
         logger.info("Specs de l'ennemi 1 : " + temp2);
-        while(a.getVie() > 0 && (temp1.getVie()  > 0 || temp2.getVie() > 0)) {
+        while (a.getVie() > 0 && (temp1.getVie() > 0 || temp2.getVie() > 0)) {
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
             System.out.println("A. Attaquer ennemie 1 " + temp1.getClass().getSimpleName());
@@ -165,14 +163,16 @@ public class Jeu {
                 if (temp1.getVie() > 0) {
                     a.attaquepremier(temp1);
                 } else {
-                    System.out.println("L'ennemi 1 est mort, vous pouvez attaquer l'ennemi 2 " + temp2.getClass().getSimpleName());
+                    System.out.println(
+                            "L'ennemi 1 est mort, vous pouvez attaquer l'ennemi 2 " + temp2.getClass().getSimpleName());
                 }
             } else if (choix1.equals("B")) {
                 logger.info("Vérification de qui attaque en premier entre le joueur et l'ennemi 2 et attaque");
                 if (temp2.getVie() > 0) {
                     a.attaquepremier(temp2);
                 } else {
-                    System.out.println("L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName()); 
+                    System.out.println(
+                            "L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName());
                 }
             } else if (choix1.equals("C")) {
                 logger.info("Utilisation de la capacité spéciale de l'ennemi 1 par le joueur");
@@ -180,15 +180,17 @@ public class Jeu {
                     ((Capacitespeciale) a).utiliserCapacite(temp1);
                 } else {
                     logger.info("L'ennemi 1 est mort");
-                    System.out.println("L'ennemi 1 est mort, vous pouvez attaquer l'ennemi 2 " + temp2.getClass().getSimpleName());
+                    System.out.println(
+                            "L'ennemi 1 est mort, vous pouvez attaquer l'ennemi 2 " + temp2.getClass().getSimpleName());
                 }
             } else if (choix1.equals("D")) {
-                
+
                 if (temp2.getVie() > 0) {
                     logger.info("Utilisation de la capacité spéciale de l'ennemi 2 par le joueur");
                     ((Capacitespeciale) a).utiliserCapacite(temp2);
                 } else {
-                    System.out.println("L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName());
+                    System.out.println(
+                            "L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName());
                 }
             } else if (choix1.equals("E")) {
                 logger.info("Pas de fuite");
@@ -208,14 +210,10 @@ public class Jeu {
             logger.info("Vous avez perdu");
             System.out.println("Vous avez perdu");
             findepartie();
-        } else { 
+        } else {
             cartee.map[cartee.x][cartee.y] = 'X';
         }
     }
-
-        
-
-    
 
     public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
         System.out.println("");
@@ -235,16 +233,30 @@ public class Jeu {
                 a.attaquepremier(b);
             } else if (choix1.equals("B")) {
                 if (a instanceof Capacitespeciale) {
-                    // verifier si le hero a l'attribut changement en true
-                    if (a.getChangement() == true) {
-                        Personnage temp = new Chevalier();
-                        a.changementattaquecapacite(temp, b);
-                        a.setNbrchangement(true);
-                    } else if (a.getChangement() == false) {
-                        logger.info("Utilisation de la capacité spéciale de " + a + " sur " + b);
-                        ((Capacitespeciale) a).utiliserCapacite(b); // Utilisation de la capacité spéciale
+                    if (a.getNbrchangement() == true) {
+                        logger.info("Le hero a déjà utilisé sa capacité spéciale");
+                        System.out.println("Le hero a déjà utilisé sa capacité spéciale");
+                    } else {
+                        if (a.getChangement() == true) {
+                            Scanner sc2 = new Scanner(System.in);
+                            System.out.println(
+                                    "Voulez-vous utiliser l'atatque spéciale avec Chevalier (C) ou Mage (M) ?");
+                            String choix2 = sc2.next();
+                            Personnage temp = null;
+                            if (choix2.equals("C")) {
+                                temp = new Chevalier();
+                            } else if (choix2.equals("M")) {
+                                temp = new Magicien();
+                            } else {
+                                System.out.println("Choix invalide");
+                            }
+                            a.changementattaquecapacite(temp, b);
+                            a.setNbrchangement(true);
+                        } else if (a.getChangement() == false) {
+                            logger.info("Utilisation de la capacité spéciale de " + a + " sur " + b);
+                            ((Capacitespeciale) a).utiliserCapacite(b); // Utilisation de la capacité spéciale
+                        }
                     }
-                    
                 } else {
                     logger.info("Ce personnage n'a pas de capacité spéciale");
                     System.out.println("Ce personnage n'a pas de capacité spéciale.");
@@ -267,12 +279,12 @@ public class Jeu {
             logger.info("Vous avez perdu");
             System.out.println("Vous avez perdu");
             findepartie();
-        } else { 
+        } else {
             cartee.map[cartee.x][cartee.y] = 'X';
         }
     }
 
-    public void choixcarte(){
+    public void choixcarte() {
         logger.info("Choix de la carte");
         System.out.println("Choissisez la carte");
         System.out.println("Votre personnage est représenté par la lettre H");
@@ -292,7 +304,7 @@ public class Jeu {
         System.out.println("Chateau");
         chateau.afficherCarte();
         System.out.println("");
-        
+
         Carte cartee = null;
         Scanner scan = new Scanner(System.in);
         System.out.println("F. Foret");
@@ -318,7 +330,7 @@ public class Jeu {
         }
     }
 
-    public void objet(Personnage a, Carte cartee, int newX, int newY){
+    public void objet(Personnage a, Carte cartee, int newX, int newY) {
         int random = (int) (Math.random() * 4);
         random = 3;
         if (random == 0) {
@@ -347,7 +359,6 @@ public class Jeu {
         }
         cartee.map[newX][newY] = 'H';
     }
-
 
     public void debuterpartie(Personnage a, Carte cartee) {
         System.out.println("");
@@ -437,7 +448,6 @@ public class Jeu {
                 combatmulti = true;
             }
 
-
             // Déplacement du joueur
             cartee.deplacerHero(newX, newY);
             System.out.println("");
@@ -476,7 +486,6 @@ public class Jeu {
                         System.out.println("L'ennemi n" + (i + 1) + " est un " + b.getClass().getSimpleName());
                         combattre(a, b, cartee, newX, newY);
                     }
-
                 }
 
             }
@@ -488,9 +497,7 @@ public class Jeu {
                 Personnage temp1 = new Brigand();
                 Personnage temp2 = new Monstre();
                 combatmulti(a, temp1, temp2, cartee, newX, newY);
-                
             }
-
 
             cartee.afficherCarte();
         }

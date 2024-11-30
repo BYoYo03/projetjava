@@ -95,6 +95,8 @@ public class Personnage {
             // verifier si le hero a l'attribut changement en true
             System.out.println("Le " + this.getClass().getSimpleName() + " utilise la capacité spéciale de " + changement.getClass().getSimpleName());
             ((Capacitespeciale) changement).utiliserCapacite(cible);
+        } else {
+            System.out.println("Le " + changement.getClass().getSimpleName() + " n'a pas de capacité spéciale");
         }
 
     }
