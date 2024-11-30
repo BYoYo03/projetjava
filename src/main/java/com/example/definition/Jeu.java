@@ -352,7 +352,7 @@ public class Jeu {
             }
         } else if (random == 3) {
             if (a instanceof Capacitespeciale) {
-                logger.info("Vous avez trouvé un objet : : Changement de capacité spéciale");
+                logger.info("Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
                 System.out.println("Changement de capacité spéciale");
                 a.setChangement(true);
             }

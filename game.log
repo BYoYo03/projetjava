@@ -1118,3 +1118,218 @@ INFO: Hero a 40 points de vie restant
 INFO: Le Hero attaque 5 fois
 INFO: Le Hero attaque Gangster avec Epee et lui inflige 25 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 5
 INFO: Gangster a 25 points de vie restant
+INFO: Le jeu commence
+INFO: Choix de la carte
+INFO: Affichage des cartes disponibles
+INFO: Carte choisie : Foret
+INFO: Choix du personnage
+INFO: L'utilisateur a choisi un personnage invalide
+INFO: Choix du personnage
+INFO: Hero choisi
+INFO: La partie commence
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers la droite
+INFO: Déplacement du joueur vers le haut
+INFO: Vous avez trouvé un objet : : Changement de capacité spéciale
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Vous avez rencontré 1 ennemi(s)
+INFO: L'ennemi n1 est un Brigand
+INFO: Specs de l'ennemi : Brigand [vie=50, attaque=10, defense=5, chance=0, arme=Poings]
+INFO: Vous avez utilisé 'Matrix', vous avez attaqué l'ennemi en esquivant son attaque 2x!
+INFO: Dégâts infligés : 10
+INFO: Brigand a maintenant 40 points de vie.
+INFO: Le hero a déjà utilisé sa capacité spéciale
+INFO: Choix invalide
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 4 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 20 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 4
+INFO: Brigand a 20 points de vie restant
+INFO: C'est au tour de Brigand
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 45 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Brigand est mort
+INFO: Brigand est mort
+INFO: Vous avez gagné
+INFO: Choix invalide
+INFO: Choix invalide
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la gauche
+INFO: Déplacement du joueur vers le haut
+INFO: Déplacement du joueur vers le haut
+INFO: Déplacement du joueur vers le haut
+INFO: Déplacement du joueur vers le haut
+INFO: Déplacement du joueur vers la gauche
+INFO: Vous avez rencontré 2 ennemi(s)
+INFO: Specs de l'ennemi 1 : Brigand [vie=50, attaque=10, defense=5, chance=0, arme=Poings]
+INFO: Specs de l'ennemi 1 : Monstre [vie=50, attaque=10, defense=5, chance=0, arme=Dague]
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi 1 et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 3 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 15 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 3
+INFO: Brigand a 35 points de vie restant
+INFO: C'est au tour de Brigand
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 40 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi 1 et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Brigand a 25 points de vie restant
+INFO: C'est au tour de Brigand
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 35 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi 1 et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Brigand avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Brigand a 20 points de vie restant
+INFO: C'est au tour de Brigand
+INFO: Brigand attaque Hero avec Poings et lui inflige 5 points de dégats
+INFO: Hero a 30 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi 2 et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Le Hero attaque Monstre avec Epee et lui inflige 25 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 5
+INFO: Monstre a 25 points de vie restant
+INFO: C'est au tour de Monstre
+INFO: Monstre attaque Hero avec Dague et lui inflige 5 points de dégats
+INFO: Hero a 25 points de vie restant
+INFO: Utilisation de la capacité spéciale de l'ennemi 1 par le joueur
+INFO: Vous avez utilisé 'One Shot' et tué l'ennemi !
+INFO: Utilisation de la capacité spéciale de l'ennemi 2 par le joueur
+INFO: Vous n'avez plus de capacité spéciale !
+INFO: Utilisation de la capacité spéciale de l'ennemi 2 par le joueur
+INFO: Vous n'avez plus de capacité spéciale !
+INFO: Utilisation de la capacité spéciale de l'ennemi 1 par le joueur
+INFO: L'ennemi 1 est mort
+INFO: Utilisation de la capacité spéciale de l'ennemi 2 par le joueur
+INFO: Vous n'avez plus de capacité spéciale !
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi 2 et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Monstre est mort
+INFO: Monstre est mort
+INFO: Vous avez gagné
+INFO: Choix invalide
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers le bas
+INFO: Déplacement du joueur vers la gauche
+INFO: Déplacement du joueur vers le haut
+INFO: Vous avez rencontré 1 ennemi(s)
+INFO: L'ennemi n1 est un Catcheur
+INFO: Specs de l'ennemi : Catcheur [vie=200, attaque=6, defense=5, chance=0, arme=Chaise]
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 4 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 20 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 4
+INFO: Catcheur a 180 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 24 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Catcheur a 170 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 23 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Catcheur a 160 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 22 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 2 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 10 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 2
+INFO: Catcheur a 150 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 21 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 25 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 5
+INFO: Catcheur a 125 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 20 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Catcheur a 120 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 19 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 25 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 5
+INFO: Catcheur a 95 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 18 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 3 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 15 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 3
+INFO: Catcheur a 80 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 17 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 4 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 20 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 4
+INFO: Catcheur a 60 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 16 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 25 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 5
+INFO: Catcheur a 35 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 15 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 1 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 5 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 1
+INFO: Catcheur a 30 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 14 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 3 fois
+INFO: Le Hero attaque Catcheur avec Epee et lui inflige 15 points de dégats car ses degats moins la défense de l'ennemie (5) sont multipliés par 3
+INFO: Catcheur a 15 points de vie restant
+INFO: C'est au tour de Catcheur
+INFO: Catcheur attaque Hero avec Chaise et lui inflige 1 points de dégats
+INFO: Hero a 13 points de vie restant
+INFO: Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque
+INFO: Vous êtes le plus rapide donc vous attaquez en premier !
+INFO: Le Hero attaque 5 fois
+INFO: Catcheur est mort
+INFO: Catcheur est mort
+INFO: Vous avez gagné
+INFO: Il n'y a plus d'ennemis
+INFO: Vous avez gagné
+INFO: La partie est terminée
