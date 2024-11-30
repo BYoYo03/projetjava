@@ -261,7 +261,9 @@ public class Jeu {
                             if (choix2.equals("C")) {
                                 temp = new Chevalier();
                             } else if (choix2.equals("M")) {
-                                temp = new Magicien();
+                                a.setVie(50);
+                                System.out.println("Vie du joueur : " + a.getVie());
+                                System.out.println("Vous avez utilisé la capacité spéciale du Mage, vous avez récupéré tous points de vie");
                             } else if (choix2.equals("H")) {
                                 temp = new Hero();
                             } else {
@@ -354,8 +356,13 @@ public class Jeu {
         if (random == 0) {
             logger.info("Vous avez trouvé un objet : Potion de vie");
             System.out.println("Vous avez trouvé un objet : Potion de vie");
-            a.setVie(100);
-            System.out.println("Votre vie est maintenant à 100");
+            if (a.getVie() == 50) {
+                logger.info("Votre vie est déjà au maximum, c'est dommage !");
+                System.out.println("Votre vie est déjà au maximum, c'est dommage !");
+            } else {
+            a.setVie(50);
+            System.out.println("Votre vie est maintenant à 50");
+            }
         } else if (random == 1) {
             logger.info("Vous avez trouvé un objet : Potion de force");
             System.out.println("Vous avez trouvé un objet : Potion de force");
