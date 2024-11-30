@@ -2,7 +2,10 @@ package com.example.definition.TypesPerso;
 
 import java.util.logging.Logger;
 
+import javax.sound.sampled.SourceDataLine;
+
 import com.example.definition.Jeu;
+import com.example.definition.DefHeros.Capacitespeciale;
 
 
 
@@ -12,6 +15,9 @@ public class Personnage {
     protected int defense;
     protected int chance;
     protected String arme;
+    protected boolean changement = false;
+    protected boolean nbrchangement = false;
+
 
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
 
@@ -63,6 +69,39 @@ public class Personnage {
         this.arme = arme;
     }
 
+
+    public void setChangement(boolean changement) {
+        this.changement = changement;
+    }
+
+    public boolean getChangement() {
+        return changement;
+    }
+
+    public void setNbrchangement(boolean nbrchangement) {
+        this.nbrchangement = nbrchangement;
+    }
+
+    public boolean getNbrchangement() {
+        return nbrchangement;
+    }
+
+    public void changementattaquecapacite(Personnage changement, Personnage cible) {
+        if (nbrchangement == true) {
+            System.out.println("Vous avez déjà utilisé sa capacité spéciale");
+            return;
+        }
+        if (changement instanceof Capacitespeciale) {
+            // verifier si le hero a l'attribut changement en true
+            System.out.println("Le " + this.getClass().getSimpleName() + " utilise la capacité spéciale de " + changement.getClass().getSimpleName());
+            ((Capacitespeciale) changement).utiliserCapacite(cible);
+        } else {
+            System.out.println("Le " + changement.getClass().getSimpleName() + " n'a pas de capacité spéciale");
+        }
+
+    }
+
+
     public void attaquenbrhero(Personnage a) {
 
         int nbrattaque = Random(1, 5);
@@ -74,7 +113,6 @@ public class Personnage {
             this.attaquehero(a);
             if (a.vie <= 0) {
                 logger.info(a.getClass().getSimpleName() + " est mort");
-                System.out.println(a.getClass().getSimpleName() + " est mort");
                 return;
             } else {
                 compteur++;
