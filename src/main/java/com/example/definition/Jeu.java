@@ -249,8 +249,8 @@ public class Jeu {
             } else if (choix1.equals("B")) {
                 if (a instanceof Capacitespeciale) {
                     if (a.getNbrchangement() == true) {
-                        logger.info("Le hero a déjà utilisé sa capacité spéciale");
-                        System.out.println("Le hero a déjà utilisé sa capacité spéciale");
+                        logger.info("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
+                        System.out.println("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
                     } else {
                         if (a.getChangement() == true) {
                             Scanner sc2 = new Scanner(System.in);
