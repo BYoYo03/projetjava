@@ -150,12 +150,25 @@ public class Jeu {
         while (a.getVie() > 0 && (temp1.getVie() > 0 || temp2.getVie() > 0)) {
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
-            System.out.println("A. Attaquer ennemie 1 " + temp1.getClass().getSimpleName());
-            System.out.println("B. Attaquer ennemie 2 " + temp2.getClass().getSimpleName());
-            System.out.println("C. Capacité spéciale ennemie 1 " + temp1.getClass().getSimpleName());
-            System.out.println("D. Capacité spéciale ennemie 2 " + temp2.getClass().getSimpleName());
-            System.out.println("E. Fuir");
+            System.out.println("===================================");
+            System.out.println("          ⚔️  COMBAT  ⚔️           ");
+            System.out.println("===================================");
             System.out.println("");
+            System.out.println("👤 Héros : " + a.getClass().getSimpleName() + "  VS  🐉 Ennemis : "
+                    + temp1.getClass().getSimpleName() + " et " + temp2.getClass().getSimpleName());
+            System.out.println("❤️ Vie Héros : " + a.getVie() + "  |  🩸 Vie Ennemie 1 : " + temp1.getVie()
+                    + "  |  🩸 Vie Ennemie 2 : " + temp2.getVie());
+            System.out.println("");
+            System.out.println("===================================");
+            System.out.println(" Que voulez-vous faire ?");
+            System.out.println("===================================");
+            System.out.println("A. 🗡️ Attaquer ennemie 1 : " + temp1.getClass().getSimpleName());
+            System.out.println("B. 🗡️ Attaquer ennemie 2 : " + temp2.getClass().getSimpleName());
+            System.out.println("C. ✨ Capacité spéciale sur ennemie 1 : " + temp1.getClass().getSimpleName());
+            System.out.println("D. ✨ Capacité spéciale sur ennemie 2 : " + temp2.getClass().getSimpleName());
+            System.out.println("");
+            System.out.println("===================================");
+
             String choix1 = sc1.next();
 
             if (choix1.equals("A")) {
@@ -192,9 +205,6 @@ public class Jeu {
                     System.out.println(
                             "L'ennemi 2 est mort, vous pouvez attaquer l'ennemi 1 " + temp1.getClass().getSimpleName());
                 }
-            } else if (choix1.equals("E")) {
-                logger.info("Pas de fuite");
-                System.out.println("Vous avez fui");
             } else {
                 logger.info("Choix invalide");
                 System.out.println("Choix invalide");
@@ -222,10 +232,15 @@ public class Jeu {
         while (a.getVie() > 0 && b.getVie() > 0) {
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
-            System.out.println("A. Attaquer");
-            System.out.println("B. Capacité spéciale");
-            System.out.println("C. Fuir");
+            System.out.println("===================================");
+            System.out.println("           🌟 MENU ACTIONS          ");
+            System.out.println("===================================");
             System.out.println("");
+            System.out.println("A. 🗡️  Attaquer");
+            System.out.println("B. ✨  Utiliser une capacité spéciale");
+            System.out.println("C. 🏃  Fuir");
+            System.out.println("");
+            System.out.println("===================================");
             String choix1 = sc1.next();
 
             if (choix1.equals("A")) {
@@ -240,14 +255,17 @@ public class Jeu {
                         if (a.getChangement() == true) {
                             Scanner sc2 = new Scanner(System.in);
                             System.out.println(
-                                    "Voulez-vous utiliser l'atatque spéciale avec Chevalier (C) ou Mage (M) ?");
+                                    "Voulez-vous utiliser l'attaque spéciale avec Chevalier (C) ou Mage (M) ou Hero (H) ?");
                             String choix2 = sc2.next();
                             Personnage temp = null;
                             if (choix2.equals("C")) {
                                 temp = new Chevalier();
                             } else if (choix2.equals("M")) {
                                 temp = new Magicien();
+                            } else if (choix2.equals("H")) {
+                                temp = new Hero();
                             } else {
+                                logger.info("Choix invalide");
                                 System.out.println("Choix invalide");
                             }
                             a.changementattaquecapacite(temp, b);
@@ -352,8 +370,9 @@ public class Jeu {
             }
         } else if (random == 3) {
             if (a instanceof Capacitespeciale) {
-                logger.info("Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
-                System.out.println("Changement de capacité spéciale");
+                logger.info(
+                        "Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
+                System.out.println("Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
                 a.setChangement(true);
             }
         }

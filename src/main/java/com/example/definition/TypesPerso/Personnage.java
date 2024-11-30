@@ -88,7 +88,7 @@ public class Personnage {
 
     public void changementattaquecapacite(Personnage changement, Personnage cible) {
         if (nbrchangement == true) {
-            System.out.println("Le hero a déjà utilisé sa capacité spéciale");
+            System.out.println("Vous avez déjà utilisé sa capacité spéciale");
             return;
         }
         if (changement instanceof Capacitespeciale) {
