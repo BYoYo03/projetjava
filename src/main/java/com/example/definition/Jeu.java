@@ -1,14 +1,5 @@
 package com.example.definition;
 
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.text.Utilities;
-
 import com.example.definition.DefEnnemies.Brigand;
 import com.example.definition.DefEnnemies.Catcheur;
 import com.example.definition.DefEnnemies.Gangster;
@@ -19,9 +10,37 @@ import com.example.definition.DefHeros.Hero;
 import com.example.definition.DefHeros.Magicien;
 import com.example.definition.TypesPerso.Personnage;
 
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Jeu {
 
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
+    char[][] foret = {
+            {'H', '.', 'C', '.', 'O'},
+            {'.', '.', '.', '.', '.'},
+            {'.', 'E', '.', '.', '.'},
+            {'.', '.', '.', '.', 'E'},
+            {'.', '.', '.', '.', '.'}
+    };
+    char[][] ville = {
+            {'H', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', 'E'},
+            {'.', '.', 'E', '.', '.'},
+            {'.', 'E', '.', 'O', '.'},
+            {'.', '.', '.', 'E', '.'}
+    };
+    char[][] chateau = {
+            {'H', '.', '.', 'E', '.'},
+            {'.', '.', '.', '.', '.'},
+            {'.', 'E', '.', '.', '.'},
+            {'.', '.', '.', '.', 'E'},
+            {'.', '.', 'O', '.', '.'}
+    };
 
     public Jeu() {
 
@@ -55,29 +74,7 @@ public class Jeu {
         System.out.println("Le jeu commence");
     }
 
-    char[][] foret = {
-            { 'H', '.', 'C', '.', 'O' },
-            { '.', '.', '.', '.', '.' },
-            { '.', 'E', '.', '.', '.' },
-            { '.', '.', '.', '.', 'E' },
-            { '.', '.', '.', '.', '.' }
-    };
-
-    char[][] ville = {
-            { 'H', '.', '.', '.', '.' },
-            { '.', '.', '.', '.', 'E' },
-            { '.', '.', 'E', '.', '.' },
-            { '.', 'E', '.', 'O', '.' },
-            { '.', '.', '.', 'E', '.' }
-    };
-    char[][] chateau = {
-            { 'H', '.', '.', 'E', '.' },
-            { '.', '.', '.', '.', '.' },
-            { '.', 'E', '.', '.', '.' },
-            { '.', '.', '.', '.', 'E' },
-            { '.', '.', 'O', '.', '.' }
-    };
-
+    //Cette fonction permet à l'utilisateur de choisir quel personnage il souhaite incarner
     public void choixperso(Carte cartee) {
         logger.info("Choix du personnage");
         System.out.println("");
@@ -360,8 +357,8 @@ public class Jeu {
                 logger.info("Votre vie est déjà au maximum, c'est dommage !");
                 System.out.println("Votre vie est déjà au maximum, c'est dommage !");
             } else {
-            a.setVie(50);
-            System.out.println("Votre vie est maintenant à 50");
+                a.setVie(50);
+                System.out.println("Votre vie est maintenant à 50");
             }
         } else if (random == 1) {
             logger.info("Vous avez trouvé un objet : Potion de force");
