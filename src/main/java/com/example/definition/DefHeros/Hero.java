@@ -1,12 +1,20 @@
-package com.example.definition;
+package com.example.definition.DefHeros;
+import java.util.logging.Logger;
+
+import com.example.definition.Jeu;
+import com.example.definition.TypesPerso.Heros;
+import com.example.definition.TypesPerso.Personnage;
 
 public class Hero extends Heros implements Capacitespeciale {
     public String capacite = "one shot";
     public int nbrcapacite = 1;
+    public boolean changement = false;
+    
 
     public Hero() {
         super();
         this.setArme("Epee");
+
     }
 
     public String toString() {
@@ -30,16 +38,35 @@ public class Hero extends Heros implements Capacitespeciale {
         this.nbrcapacite = nbrcapacite;
     }
 
+
+    private static final Logger logger = Logger.getLogger(Jeu.class.getName());
+
     @Override
     public void utiliserCapacite(Personnage cible) {
         // Logique de la capacité spéciale "One Shot"
         if (nbrcapacite > 0) {
             nbrcapacite--; // Réduit le nombre d'utilisations de la capacité
-            cible.vie = 0; // Tué instantanément
+            cible.setVie(0); // Tue l'ennemi
+            logger.info("Vous avez utilisé 'One Shot' et tué l'ennemi !");
             System.out.println("Vous avez utilisé 'One Shot' et tué l'ennemi !");
         } else {
+            logger.info("Vous n'avez plus de capacité spéciale !");
             System.out.println("Vous n'avez plus de capacité spéciale !");
         }
     }
 
+    public void rechargerCapacite() {
+        if (nbrcapacite == 1) {
+            logger.info("Je voulais rehcarcger ta capacité spéciale mais tu l'as déjà !");
+            System.out.println("Je voulais rehcarcger ta capacité spéciale mais tu l'as déjà !");
+            return;
+        }
+        nbrcapacite = 1;
+        logger.info("Vous avez rechargé votre capacité spéciale !");
+        System.out.println("Vous avez rechargé votre capacité spéciale !");
+    }
+
+    public void changerCapacite() {
+        changement = true;
+    }
 }
