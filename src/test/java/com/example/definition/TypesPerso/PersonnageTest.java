@@ -33,7 +33,8 @@ public class PersonnageTest {
         testEnnemi.setVie(5);
         testEnnemi.attaque(testHero);
         assertEquals(0,testHero.getVie());
-        //A la fin du jeu, le héros est mort, (system.exit(0))
+        jeu.findepartie(); // On vérifie que le jeu est fini
+
     }
 
     @Test
@@ -42,11 +43,12 @@ public class PersonnageTest {
         Personnage testHero = new Chevalier();
         Personnage testEnnemi = new Gangster();
         assertNotEquals(testHero.getChance(),testEnnemi.getChance());
+        testHero.attaquepremier(testEnnemi);
     }
 
     @Test
     // Ce test vérifie que le héros utilise bien sa capacité spéciale et tue le brigand (one shot)
-    void utiliserCap () {
+    void utiliserCapHero () {
         Personnage testHero = new Hero();
         Personnage testEnnemi = new Brigand();
         ((Capacitespeciale) testHero).utiliserCapacite(testEnnemi);
@@ -55,12 +57,13 @@ public class PersonnageTest {
 
     @Test
     // Ce test vérifie que le chevalier utilise bien sa capacité spéciale et attaque le brigand en esquivant son attaque
-    void utiliserCap2 () {
-        Personnage testHero = new Chevalier();
+    void utiliserCapchevalier () {
+        Personnage testChevalier = new Chevalier();
         Personnage testEnnemi = new Brigand();
         testEnnemi.setVie(50);
-        ((Capacitespeciale) testHero).utiliserCapacite(testEnnemi);
+        ((Capacitespeciale) testChevalier).utiliserCapacite(testEnnemi);
         assertNotEquals(50,testEnnemi.getVie());
     }
+
 
 }
