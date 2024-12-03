@@ -1,15 +1,13 @@
 package com.example.definition.TypesPerso;
 
-import java.util.logging.Logger;
-
-import javax.sound.sampled.SourceDataLine;
-
-import com.example.definition.Jeu;
 import com.example.definition.DefHeros.Capacitespeciale;
+import com.example.definition.Jeu;
 
+import java.util.logging.Logger;
 
 
 public class Personnage {
+    private static final Logger logger = Logger.getLogger(Jeu.class.getName());
     protected int vie;
     protected int attaque;
     protected int defense;
@@ -17,9 +15,6 @@ public class Personnage {
     protected String arme;
     protected boolean changement = false;
     protected boolean nbrchangement = false;
-
-
-    private static final Logger logger = Logger.getLogger(Jeu.class.getName());
 
     public Personnage(int vie, int attaque, int defense, int chance, String arme) {
         this.vie = vie;
@@ -69,21 +64,20 @@ public class Personnage {
         this.arme = arme;
     }
 
+    public boolean getChangement() {
+        return changement;
+    }
 
     public void setChangement(boolean changement) {
         this.changement = changement;
     }
 
-    public boolean getChangement() {
-        return changement;
+    public boolean getNbrchangement() {
+        return nbrchangement;
     }
 
     public void setNbrchangement(boolean nbrchangement) {
         this.nbrchangement = nbrchangement;
-    }
-
-    public boolean getNbrchangement() {
-        return nbrchangement;
     }
 
     public void changementattaquecapacite(Personnage changement, Personnage cible) {
@@ -103,7 +97,6 @@ public class Personnage {
 
 
     public void attaquenbrhero(Personnage a) {
-
         int nbrattaque = Random(1, 5);
         int compteur = 0;
         System.out.println("Le Hero attaque " + nbrattaque + " fois");
@@ -159,7 +152,7 @@ public class Personnage {
 
     }
 
-    private void attaque(Personnage a) {
+    public void attaque(Personnage a) {
         if (this.vie <= 0) {
             logger.info(this.getClass().getSimpleName() + " est mort");
             System.out.println(this.getClass().getSimpleName() + " est mort");
@@ -209,18 +202,14 @@ public class Personnage {
                         logger.info(a.getClass().getSimpleName() + " est mort");
                         System.out.println(a.getClass().getSimpleName() + " est mort");
                         return;
-                    }
-
-                    else {
+                    } else {
                         logger.info("C'est au tour de " + a.getClass().getSimpleName());
                         System.out.println("C'est au tour de " + a.getClass().getSimpleName());
                         a.attaque(this);
                         logger.info(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
                         System.out.println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
                     }
-                }
-
-                else {
+                } else {
                     this.attaque(a);
                     if (a.vie <= 0) {
                         logger.info(a.getClass().getSimpleName() + " est mort");
@@ -237,9 +226,7 @@ public class Personnage {
                                 .println(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
                     }
                 }
-            }
-
-            else {
+            } else {
                 logger.info("L'ennemie attaque en premier !");
                 System.out.println("L'ennemie attaque en premier !");
                 System.out.println("");
@@ -254,9 +241,7 @@ public class Personnage {
                     } else {
                         this.attaquenbrhero(a);
                     }
-                }
-
-                else {
+                } else {
 
                     a.attaque(this);
                     logger.info(this.getClass().getSimpleName() + " a " + this.vie + " points de vie restant");
