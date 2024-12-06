@@ -36,6 +36,7 @@ class HeroTest {
     @Test
     void testrechargecapacite() {
         // Initialisation du héros et de la cible
+        hero = new Hero();
         cible = new Monstre();
         hero.setNbrcapacite(1); // On s'assure que le héros a la possibilité d'utiliser une capacité spéciale
 

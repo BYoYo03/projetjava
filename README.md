@@ -12,7 +12,8 @@ Ce projet est un jeu d'aventure textuel développé en Java. Le joueur incarne u
 - **Changement de capacités** : Utilisez des objets spéciaux pour changer temporairement vos capacités. (Le changement se fait que si vous ramassé un objet et que vous tombez sur le bon objet, ensuite quand vous serez en combat quand vous voudrez utiliser votre capcité spéciale, la possibilité de changer la capacité se proposera à vous.
 - **Système de logging** : Les événements de jeu sont enregistrés dans un fichier `game.log`, n'hésitez pas à le vider si celui-ci est remplis.
 
-**La gestion des objets et le changement de capacités entre les gentils (hero, chevalier, magicien) sont des fonctionnalités bonus à la demande du professeur.**
+**Le cahier des charges est entièrement respecté. La gestion des objets et le changement de capacités entre les personnages (héros(hero), chevalier, magicien) sont des fonctionnalités supplémentaires demandées par le professeur.**
+
 
 ## Fichiers principaux
 
