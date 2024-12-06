@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 public class PersonnageTest {
+
+    // Test obligatoire du Cahier de charge : "Simuler l’a3aque d’un héros sur un ennemi avec des points d’a3aque égaux aux points de vie de l’ennemi a3aqué. Vérifier que ce dernier ait bien 0 points de vie" 
     @Test
     // Ce test permet de vérifier qu'un ennemi meurt si un héros attaque
     void testAttaque() {
@@ -24,6 +26,7 @@ public class PersonnageTest {
         assertEquals(0, testEnnemi.getVie());
     }
 
+    // Test obligatoire du Cahier de charge : "Créez un test qui simule qu’un héros meurt avant la ligne d’arrivée, vérifiez que la partie se termine bien par une défaite"
     @Test
     // Ce test simule qu'un héros meurt avant la ligne d'arrivée
     void testMortHeros() {
