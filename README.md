@@ -12,6 +12,8 @@ Ce projet est un jeu d'aventure textuel développé en Java. Le joueur incarne u
 - **Changement de capacités** : Utilisez des objets spéciaux pour changer temporairement vos capacités. (Le changement se fait que si vous ramassé un objet et que vous tombez sur le bon objet, ensuite quand vous serez en combat quand vous voudrez utiliser votre capcité spéciale, la possibilité de changer la capacité se proposera à vous.
 - **Système de logging** : Les événements de jeu sont enregistrés dans un fichier `game.log`, n'hésitez pas à le vider si celui-ci est remplis.
 
+**La gestion des objets et le changement de capacités entre les gentils (hero, chevalier, magicien) sont des fonctionnalités bonus à la demande du professeur.**
+
 ## Fichiers principaux
 
 ### 1. `Jeu.java`
@@ -38,7 +40,6 @@ Personnalise le format des logs :
 ### 4. `Capacitespeciale.java`
 Interface qui implémente la capacité spéciale:
 
-
 ## Comment jouer ?
 
 1. Clonez ce dépôt ou téléchargez les fichiers sources.
@@ -56,19 +57,14 @@ Interface qui implémente la capacité spéciale:
 
 ## Dépendances
 
+Ce projet utilise JUnit 4 pour les tests unitaires. Pour exécuter les tests, assurez-vous d'avoir ajouté les dépendances suivantes dans votre fichier `pom.xml` :
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.8.2</version>
-        <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -77,6 +73,7 @@ Interface qui implémente la capacité spéciale:
 Développé par Bahir et Merwane.
 
 Maven : 
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
