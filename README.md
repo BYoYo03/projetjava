@@ -23,11 +23,10 @@ C'est aussi pour cela qu'il y a un seul combat à plusieurs (dans la carte fôre
 Gère le flux principal du jeu :
 - Début et fin de la partie.
 - Gestion des cartes, des déplacements et des interactions avec les ennemis et les objets.
-- Implémentation des combats simples et multiples.
+- Implémentation des combats simples (et multiples).
 
 ### 2. `Carte.java`
 Représente une carte :
-- Permet de définir des cartes avec différents terrains.
 - Affiche la carte et gère les déplacements du héros.
 
 ### 3. `Personnage.java`
@@ -37,11 +36,13 @@ Classe de base pour tous les personnages :
 
 ### 4. `CustomFormat.java`
 Personnalise le format des logs :
+- Formatage des messages de log pour afficher les informations de jeu de manière claire.
 - Les logs sont écrits dans un fichier `game.log` pour suivre les actions du joueur.
 
 
 ### 4. `Capacitespeciale.java`
-Interface qui implémente la capacité spéciale:
+Interface qui implémente la capacité spéciale.
+Chaques personnages a sa propre capacité spéciale (héros(hero), chevalier, magicien), implémentée dans les classes correspondantes.
 
 ## Comment jouer ?
 
