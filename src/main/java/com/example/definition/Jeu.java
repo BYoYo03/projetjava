@@ -21,25 +21,25 @@ public class Jeu {
 
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
     char[][] foret = {
-            {'H', '.', 'C', '.', 'O'},
-            {'.', '.', '.', '.', '.'},
-            {'.', 'E', '.', '.', '.'},
-            {'.', '.', '.', '.', 'E'},
-            {'.', '.', '.', '.', '.'}
+            { 'H', '.', 'C', '.', 'O' },
+            { '.', '.', '.', '.', '.' },
+            { '.', 'E', '.', '.', '.' },
+            { '.', '.', '.', '.', 'E' },
+            { '.', '.', '.', '.', '.' }
     };
     char[][] ville = {
-            {'H', '.', '.', '.', '.'},
-            {'.', '.', '.', '.', 'E'},
-            {'.', '.', 'E', '.', '.'},
-            {'.', 'E', '.', 'O', '.'},
-            {'.', '.', '.', 'E', '.'}
+            { 'H', '.', '.', '.', '.' },
+            { '.', '.', '.', '.', 'E' },
+            { '.', '.', 'E', '.', '.' },
+            { '.', 'E', '.', 'O', '.' },
+            { '.', '.', '.', 'E', '.' }
     };
     char[][] chateau = {
-            {'H', '.', '.', 'E', '.'},
-            {'.', '.', '.', '.', '.'},
-            {'.', 'E', '.', '.', '.'},
-            {'.', '.', '.', '.', 'E'},
-            {'.', '.', 'O', '.', '.'}
+            { 'H', '.', '.', 'E', '.' },
+            { '.', '.', '.', '.', '.' },
+            { '.', 'E', '.', '.', '.' },
+            { '.', '.', '.', '.', 'E' },
+            { '.', '.', 'O', '.', '.' }
     };
 
     public Jeu() {
@@ -74,7 +74,8 @@ public class Jeu {
         System.out.println("Le jeu commence");
     }
 
-    //Cette fonction permet à l'utilisateur de choisir quel personnage il souhaite incarner
+    // Cette fonction permet à l'utilisateur de choisir quel personnage il souhaite
+    // incarner
     public void choixperso(Carte cartee) {
         logger.info("Choix du personnage");
         System.out.println("");
@@ -247,7 +248,8 @@ public class Jeu {
                 if (a instanceof Capacitespeciale) {
                     if (a.getNbrchangement() == true) {
                         logger.info("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
-                        System.out.println("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
+                        System.out
+                                .println("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
                     } else {
                         if (a.getChangement() == true) {
                             Scanner sc2 = new Scanner(System.in);
@@ -260,7 +262,8 @@ public class Jeu {
                             } else if (choix2.equals("M")) {
                                 a.setVie(50);
                                 System.out.println("Vie du joueur : " + a.getVie());
-                                System.out.println("Vous avez utilisé la capacité spéciale du Mage, vous avez récupéré tous points de vie");
+                                System.out.println(
+                                        "Vous avez utilisé la capacité spéciale du Mage, vous avez récupéré tous points de vie");
                             } else if (choix2.equals("H")) {
                                 temp = new Hero();
                             } else {
@@ -376,7 +379,8 @@ public class Jeu {
             if (a instanceof Capacitespeciale) {
                 logger.info(
                         "Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
-                System.out.println("Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
+                System.out.println(
+                        "Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
                 a.setChangement(true);
             }
         }
