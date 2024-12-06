@@ -1,5 +1,6 @@
 package com.example.definition;
 
+// importation des classes
 import com.example.definition.DefEnnemies.Brigand;
 import com.example.definition.DefEnnemies.Catcheur;
 import com.example.definition.DefEnnemies.Gangster;
@@ -10,6 +11,7 @@ import com.example.definition.DefHeros.Hero;
 import com.example.definition.DefHeros.Magicien;
 import com.example.definition.TypesPerso.Personnage;
 
+// importation des outils
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
@@ -17,9 +19,13 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// Classe Jeu
 public class Jeu {
 
+    /// Logger
     private static final Logger logger = Logger.getLogger(Jeu.class.getName());
+
+    // Attributs
     char[][] foret = {
             { 'H', '.', 'C', '.', 'O' },
             { '.', '.', '.', '.', '.' },
@@ -42,33 +48,36 @@ public class Jeu {
             { '.', '.', 'O', '.', '.' }
     };
 
+    // Méthodes
     public Jeu() {
-
+        // Configuration du logger
         try {
-            // Supprimer tous les handlers existants (comme le ConsoleHandler par défaut)
+            // Supprime tous les handlers existants (comme le ConsoleHandler par défaut)
             Logger rootLogger = Logger.getLogger("");
             Handler[] handlers = rootLogger.getHandlers();
             for (Handler handler : handlers) {
                 rootLogger.removeHandler(handler);
             }
 
-            // Créer un FileHandler pour écrire dans un fichier de log nommé "game.log"
+            // Crée un FileHandler pour écrire dans un fichier de log nommé "game.log"
             FileHandler fileHandler = new FileHandler("game.log", true);
 
-            // Utiliser le CustomFormatter au lieu du SimpleFormatter par défaut
+            // Utilise le CustomFormatter au lieu du SimpleFormatter par défaut
             CustomFormat formatter = new CustomFormat();
             fileHandler.setFormatter(formatter);
 
-            // Ajouter uniquement le FileHandler au logger
+            // Ajoute uniquement le FileHandler au logger
             logger.addHandler(fileHandler);
 
-            // Définir le niveau de logging
+            // Définie le niveau de logging
             logger.setLevel(Level.INFO);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    // Cette fonction permet de démarrer une partie
     public void commencer() {
         logger.info("Le jeu commence");
         System.out.println("Le jeu commence");
@@ -109,18 +118,19 @@ public class Jeu {
 
     }
 
+    // Cette fonction permet de finir la partie
     public void findepartie() {
         logger.info("La partie est terminée");
         System.out.println("La partie est terminée");
         System.exit(0);
     }
 
+    // Cette fonction permet de vérifier s'il reste des ennemis sur la carte
     public void verifennemie(Carte cartee) {
         // verifier s'il reste des ennemis sinon fin de partie
         boolean ennemiRestant = false;
         // parcourir la carte
         for (int i = 0; i < cartee.map.length; i++) {
-            // parcourir la ligne
             for (int j = 0; j < cartee.map[i].length; j++) {
                 // si un ennemi est trouvé, sortir de la boucle et continuer le jeu
                 if (cartee.map[i][j] == 'E') {
@@ -139,13 +149,18 @@ public class Jeu {
         }
     }
 
+    // Cette focntion permet de choisir le type d'attaque dans un combat contre
+    // plusieurs ennemis (le changement de capacité entre les héros n'est pas
+    // implémenté sur cette méthode)
     public void combatmulti(Personnage a, Personnage temp1, Personnage temp2, Carte cartee, int x, int y) {
         System.out.println("");
         System.out.println("Specs de l'ennemi : " + temp1);
         logger.info("Specs de l'ennemi 1 : " + temp1);
         System.out.println("Specs de l'ennemi : " + temp2);
         logger.info("Specs de l'ennemi 1 : " + temp2);
+        // tant que le héros et les ennemis sont en vie ou un ennemi est en vie
         while (a.getVie() > 0 && (temp1.getVie() > 0 || temp2.getVie() > 0)) {
+            // demander à l'utilisateur de choisir une attaque
             Scanner sc1 = new Scanner(System.in);
             System.out.println("");
             System.out.println("===================================");
@@ -169,6 +184,8 @@ public class Jeu {
 
             String choix1 = sc1.next();
 
+            // Dans cahquecas avant d'attaquer, vérifier si l'ennemi est mort et ensuite
+            // attaque
             if (choix1.equals("A")) {
                 logger.info("Vérification de qui attaque en premier entre le joueur et l'ennemi 1 et attaque");
                 if (temp1.getVie() > 0) {
@@ -209,6 +226,8 @@ public class Jeu {
             }
         }
 
+        // si les deux ennemis sont morts, le joueur gagne ou si le joueur est mort, il
+        // perd
         if (temp1.getVie() <= 0 && temp2.getVie() <= 0) {
             logger.info("Vous avez gagné");
             System.out.println("Vous avez gagné");
@@ -223,6 +242,9 @@ public class Jeu {
         }
     }
 
+    // méthode pour combattre un ennemi seul, ça reste le même principe que pour la
+    // méthode précédente, (cell-ci le changement de capacité spéciale est
+    // implémenté)
     public void combattre(Personnage a, Personnage b, Carte cartee, int x, int y) {
         System.out.println("");
         System.out.println("Specs de l'ennemi : " + b);
@@ -245,34 +267,48 @@ public class Jeu {
                 logger.info("Vérification de qui attaque en premier entre le joueur et l'ennemi et attaque");
                 a.attaquepremier(b);
             } else if (choix1.equals("B")) {
+                // vérifier si le personnage a une capacité spéciale
                 if (a instanceof Capacitespeciale) {
+                    // vérifier si le personnage a déjà utilisé sa capacité spéciale (changé)
                     if (a.getNbrchangement() == true) {
                         logger.info("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
                         System.out
                                 .println("Le" + a.getClass().getSimpleName() + " a déjà utilisé sa capacité spéciale");
                     } else {
+                        // si le personnage n'a pas encore utilisé sa capacité spéciale, il peut le
+                        // faire et on vérifie qu'il a bien rammasser l'objet qui lui permet de changer
+                        // de capacité
                         if (a.getChangement() == true) {
                             Scanner sc2 = new Scanner(System.in);
                             System.out.println(
                                     "Voulez-vous utiliser l'attaque spéciale avec Chevalier (C) ou Mage (M) ou Hero (H) ?");
                             String choix2 = sc2.next();
+                            // on crée un objet temporaire pour permettre de changer de capacité spéciale
                             Personnage temp = null;
                             if (choix2.equals("C")) {
+                                // utilisation de la capacité spéciale du chevalier
                                 temp = new Chevalier();
+                                a.changementattaquecapacite(temp, b);
+                                a.setNbrchangement(true);
                             } else if (choix2.equals("M")) {
+                                // utilisation de la capacité spéciale du Mage, c'est juste une récupération de
+                                // points de vie donc on ne change pas de capacité spéciale ici
                                 a.setVie(50);
                                 System.out.println("Vie du joueur : " + a.getVie());
                                 System.out.println(
                                         "Vous avez utilisé la capacité spéciale du Mage, vous avez récupéré tous points de vie");
                             } else if (choix2.equals("H")) {
+                                // utilisation de la capacité spéciale du Hero
                                 temp = new Hero();
+                                a.changementattaquecapacite(temp, b);
+                                a.setNbrchangement(true);
                             } else {
                                 logger.info("Choix invalide");
                                 System.out.println("Choix invalide");
                             }
-                            a.changementattaquecapacite(temp, b);
-                            a.setNbrchangement(true);
                         } else if (a.getChangement() == false) {
+                            // si le personnage n'a pas rammassé l'objet qui lui permet de changer de
+                            // capacité spéciale, il utilise sa capacité spéciale normale
                             logger.info("Utilisation de la capacité spéciale de " + a + " sur " + b);
                             ((Capacitespeciale) a).utiliserCapacite(b); // Utilisation de la capacité spéciale
                         }
@@ -290,6 +326,7 @@ public class Jeu {
             }
         }
 
+        // vérification de la vie des personnages pour savoir qui a gagné
         if (b.getVie() <= 0) {
             logger.info("Vous avez gagné");
             System.out.println("Vous avez gagné");
@@ -304,6 +341,7 @@ public class Jeu {
         }
     }
 
+    // méthode pour le choix de la carte
     public void choixcarte() {
         logger.info("Choix de la carte");
         System.out.println("Choissisez la carte");
@@ -350,9 +388,11 @@ public class Jeu {
         }
     }
 
+    // méthode pour le ramage des objets sur la carte
     public void objet(Personnage a, Carte cartee, int newX, int newY) {
+        // création d'un nombre aléatoire pour déterminer l'objet trouvé
         int random = (int) (Math.random() * 4);
-        random = 3;
+
         if (random == 0) {
             logger.info("Vous avez trouvé un objet : Potion de vie");
             System.out.println("Vous avez trouvé un objet : Potion de vie");
@@ -369,6 +409,7 @@ public class Jeu {
             a.setAttaque(25);
             System.out.println("Votre attaque est maintenant à 25");
         } else if (random == 2) {
+            // si le a une capacité spéciale, il peut recharger sa capacité spéciale
             if (a instanceof Capacitespeciale) {
                 logger.info("Vous avez trouvé un objet : Recharger sa capacité spéciale");
                 System.out.println("Recharger sa capacité spéciale");
@@ -376,6 +417,8 @@ public class Jeu {
                 a.setNbrchangement(false);
             }
         } else if (random == 3) {
+            // nous mettons à jour le boolean changement de la capacité spéciale à true,
+            // afin de permettre à l'utilisateur de changer de capacité spéciale
             if (a instanceof Capacitespeciale) {
                 logger.info(
                         "Vous avez trouvé un objet : Changement de capacité spéciale 1 fois quand vous utiliserez cette capacité");
@@ -384,9 +427,11 @@ public class Jeu {
                 a.setChangement(true);
             }
         }
+        // nous mettons à jour la position du joueur sur la carte
         cartee.map[newX][newY] = 'H';
     }
 
+    // méthode pour le déroulement de la partie
     public void debuterpartie(Personnage a, Carte cartee) {
         System.out.println("");
         logger.info("La partie commence");
@@ -460,16 +505,18 @@ public class Jeu {
                 continue;
             }
 
+            // Vérification de la présence d'un ennemi
             boolean combat = false;
             if (cartee.map[newX][newY] == 'E') {
                 combat = true;
             }
 
+            // Vérification de la présence d'un objet
             boolean objet = false;
             if (cartee.map[newX][newY] == 'O') {
                 objet = true;
             }
-
+            // Vérification de la présence d'un combat multiple
             boolean combatmulti = false;
             if (cartee.map[newX][newY] == 'C') {
                 combatmulti = true;
@@ -479,10 +526,12 @@ public class Jeu {
             cartee.deplacerHero(newX, newY);
             System.out.println("");
 
+            // Si le joueur rencontre un objet, renvoie à la méthode objet
             if (objet) {
                 objet(a, cartee, newX, newY);
             }
-
+            // Si le joueur rencontre un combat, un nombre aléatoire d'ennemis est généré et
+            // le type d'ennemie est généré aléatoirement entre les 4 types d'ennemis
             if (combat) {
                 int random = (int) (Math.random() * 3);
                 if (random == 0) {
@@ -517,15 +566,18 @@ public class Jeu {
 
             }
 
+            // Si le joueur rencontre un combat multiple, 2 ennemis sont générés de façon
+            // manuelle
+
             if (combatmulti) {
                 int random1 = 2;
                 logger.info("Vous avez rencontré " + random1 + " ennemi(s)");
                 System.out.println("Vous avez rencontré " + random1 + " ennemi(s)");
-                Personnage temp1 = new Brigand();
+                Personnage temp1 = new Monstre();
                 Personnage temp2 = new Monstre();
                 combatmulti(a, temp1, temp2, cartee, newX, newY);
             }
-
+            // affichage de la carte
             cartee.afficherCarte();
         }
     }

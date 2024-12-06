@@ -1,4 +1,6 @@
 package com.example.definition;
+
+// Importation des outils nécessaires
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
@@ -6,7 +8,7 @@ import java.util.logging.LogRecord;
 class CustomFormat extends Formatter {
     @Override
     public String format(LogRecord record) {
-        // Personnalisez ici le format des messages de log
+        // Personnalisation du format du logger
         return record.getLevel() + ": " + record.getMessage() + "\n";
     }
 }
